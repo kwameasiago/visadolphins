@@ -12,121 +12,320 @@
 
     <main>
         <!-- ===========================
-             PAGE INTRODUCTION
+             PAGE HERO
              =========================== -->
-        <section id="programs-intro" class="section">
-            <!-- TODO: One paragraph: "Visa Dolphins offers four structured programmes for swimmers ages 5 and above..." -->
-            <!-- TODO: Key trust line: "All sessions are led by certified coaches with a maximum of 15 swimmers per session" -->
+        <section class="page-hero">
             <div class="container">
-                <h1>Swim Club Programs</h1>
-                <p>TODO: Introduction paragraph</p>
+                <span class="hero-badge">SWIM CLUB PROGRAMMES</span>
+                <h1 class="page-hero__title">Find Your <span class="text-accent">Level</span></h1>
+                <p class="page-hero__desc">From first splash to international podium — four structured programmes designed to develop swimmers of every ability. All sessions led by certified coaches with a maximum 15:1 ratio.</p>
             </div>
         </section>
 
         <!-- ===========================
-             PROGRAMME 1 — NOVICE
+             PROGRAMME NAVIGATION
              =========================== -->
-        <section id="novice" class="section">
-            <!-- TODO: Who it is for: Ages 5–12, complete beginners -->
-            <!-- TODO: Schedule: Monday to Friday, 4:30 PM – 5:30 PM -->
-            <!-- TODO: Fee: KES 1,000 per session -->
-            <!-- TODO: What you will learn: fundamental skills and water safety -->
-            <!-- TODO: Outcome: Confidence in the water, basic stroke technique -->
+        <section class="section programme-nav-section">
             <div class="container">
-                <div class="programme-card">
-                    <h2>Novice</h2>
-                    <p>TODO: Programme details</p>
+                <div class="programme-nav">
+                    <a href="#novice" class="programme-nav__item programme-nav__item--novice">
+                        <span class="programme-nav__level">Level 1</span>
+                        <span class="programme-nav__name">Novice</span>
+                    </a>
+                    <a href="#intermediate" class="programme-nav__item programme-nav__item--intermediate">
+                        <span class="programme-nav__level">Level 2</span>
+                        <span class="programme-nav__name">Intermediate</span>
+                    </a>
+                    <a href="#elite" class="programme-nav__item programme-nav__item--elite">
+                        <span class="programme-nav__level">Level 3</span>
+                        <span class="programme-nav__name">Elite</span>
+                    </a>
+                    <a href="#professional" class="programme-nav__item programme-nav__item--pro">
+                        <span class="programme-nav__level">Level 4</span>
+                        <span class="programme-nav__name">Professional</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- ===========================
-             PROGRAMME 2 — INTERMEDIATE
+             PROGRAMMES GRID
              =========================== -->
-        <section id="intermediate" class="section">
-            <!-- TODO: Who it is for: Swimmers with basic skills, all ages -->
-            <!-- TODO: Schedule: Monday to Friday, 5:30 PM – 6:30 PM -->
-            <!-- TODO: Fee: KES 1,000 per session -->
-            <!-- TODO: What you will learn: Technique refinement and endurance -->
-            <!-- TODO: Outcome: Consistent stroke across all four disciplines -->
+        <section class="section programme-section">
             <div class="container">
-                <div class="programme-card">
-                    <h2>Intermediate</h2>
-                    <p>TODO: Programme details</p>
+                <div class="programmes-grid-2col">
+
+                <div class="programme-detail programme-detail--novice" id="novice">
+                    <div class="programme-detail__header">
+                        <div class="programme-detail__badge">Level 1</div>
+                        <h2 class="programme-detail__title">Novice</h2>
+                        <p class="programme-detail__tagline">Water confidence and first strokes</p>
+                    </div>
+                    <div class="programme-detail__grid">
+                        <div class="programme-detail__image">
+                            <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=600&h=400&fit=crop&crop=center" alt="Children learning to swim" loading="lazy">
+                        </div>
+                        <div class="programme-detail__info">
+                            <div class="programme-info-block">
+                                <h3>Who Is It For?</h3>
+                                <p>Complete beginners aged 5–12 who are new to the water or have limited swimming experience. No prior skill required.</p>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>What You'll Learn</h3>
+                                <ul>
+                                    <li>Water confidence and safety awareness</li>
+                                    <li>Floating and breath control</li>
+                                    <li>Introduction to freestyle and backstroke</li>
+                                    <li>Basic pool etiquette and lane discipline</li>
+                                </ul>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>Outcome</h3>
+                                <p>Swimmers graduate with the confidence to swim 25m unassisted and the foundation to progress to Intermediate level.</p>
+                            </div>
+                            <div class="programme-meta-grid">
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Schedule</span>
+                                    <span class="programme-meta-value">Mon – Fri, 4:30 – 5:30 PM</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Fee</span>
+                                    <span class="programme-meta-value">KES 1,000 / session</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Max Group Size</span>
+                                    <span class="programme-meta-value">15 swimmers</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Duration</span>
+                                    <span class="programme-meta-value">60 minutes</span>
+                                </div>
+                            </div>
+                            <div class="programme-actions">
+                                <a href="https://wa.me/254717784400?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20the%20Novice%20programme" class="btn btn-outline btn-sm" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire</a>
+                                <button class="btn btn-outline btn-sm" data-open-modal="payment-modal">How to Pay</button>
+                                <a href="/club/enrol.html" class="btn btn-primary btn-sm">Apply &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===========================
-             PROGRAMME 3 — ELITE
-             =========================== -->
-        <section id="elite" class="section">
-            <!-- TODO: Who it is for: Advanced swimmers preparing for competition -->
-            <!-- TODO: Schedule: Monday to Friday, 6:30 PM – 7:30 PM -->
-            <!-- TODO: Fee: KES 1,500 per session -->
-            <!-- TODO: What you will learn: Competition preparation and performance enhancement -->
-            <!-- TODO: Outcome: County and national meet readiness -->
-            <div class="container">
-                <div class="programme-card">
-                    <h2>Elite</h2>
-                    <p>TODO: Programme details</p>
+                <div class="programme-detail programme-detail--intermediate" id="intermediate">
+                    <div class="programme-detail__header">
+                        <div class="programme-detail__badge">Level 2</div>
+                        <h2 class="programme-detail__title">Intermediate</h2>
+                        <p class="programme-detail__tagline">Stroke refinement and endurance building</p>
+                    </div>
+                    <div class="programme-detail__grid">
+                        <div class="programme-detail__image">
+                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=400&fit=crop&crop=center" alt="Swimmer practicing freestyle" loading="lazy">
+                        </div>
+                        <div class="programme-detail__info">
+                            <div class="programme-info-block">
+                                <h3>Who Is It For?</h3>
+                                <p>Swimmers of all ages who have basic water confidence and can swim at least 25m. Ready to develop proper technique across multiple strokes.</p>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>What You'll Learn</h3>
+                                <ul>
+                                    <li>All four competitive strokes (freestyle, backstroke, breaststroke, butterfly)</li>
+                                    <li>Turns and streamline technique</li>
+                                    <li>Endurance sets and interval training</li>
+                                    <li>Introduction to pace and timing</li>
+                                </ul>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>Outcome</h3>
+                                <p>Swimmers achieve consistent, efficient technique in all strokes and are ready for club competitions and time trials.</p>
+                            </div>
+                            <div class="programme-meta-grid">
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Schedule</span>
+                                    <span class="programme-meta-value">Mon – Fri, 5:30 – 6:30 PM</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Fee</span>
+                                    <span class="programme-meta-value">KES 1,000 / session</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Max Group Size</span>
+                                    <span class="programme-meta-value">15 swimmers</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Duration</span>
+                                    <span class="programme-meta-value">60 minutes</span>
+                                </div>
+                            </div>
+                            <div class="programme-actions">
+                                <a href="https://wa.me/254717784400?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20the%20Intermediate%20programme" class="btn btn-outline btn-sm" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire</a>
+                                <button class="btn btn-outline btn-sm" data-open-modal="payment-modal">How to Pay</button>
+                                <a href="/club/enrol.html" class="btn btn-primary btn-sm">Apply &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===========================
-             PROGRAMME 4 — PROFESSIONAL
-             =========================== -->
-        <section id="professional" class="section">
-            <!-- TODO: Who it is for: Elite swimmers targeting national and international competition -->
-            <!-- TODO: Schedule: Monday to Saturday, 7:00 AM – 9:00 AM -->
-            <!-- TODO: Fee: KES 2,000 per session -->
-            <!-- TODO: What you will learn: Advanced race strategy, endurance, and peak performance -->
-            <!-- TODO: Outcome: National team qualification pathway -->
-            <div class="container">
-                <div class="programme-card">
-                    <h2>Professional</h2>
-                    <p>TODO: Programme details</p>
+                <div class="programme-detail programme-detail--elite" id="elite">
+                    <div class="programme-detail__header">
+                        <div class="programme-detail__badge">Level 3</div>
+                        <h2 class="programme-detail__title">Elite</h2>
+                        <p class="programme-detail__tagline">Competition prep and race strategy</p>
+                    </div>
+                    <div class="programme-detail__grid">
+                        <div class="programme-detail__image">
+                            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&h=400&fit=crop&crop=center" alt="Competitive swimmer racing" loading="lazy">
+                        </div>
+                        <div class="programme-detail__info">
+                            <div class="programme-info-block">
+                                <h3>Who Is It For?</h3>
+                                <p>Advanced swimmers with qualifying times who are preparing for county and national competitions. Entry by coach assessment.</p>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>What You'll Learn</h3>
+                                <ul>
+                                    <li>Race strategy and pacing plans</li>
+                                    <li>Advanced starts, turns, and finishes</li>
+                                    <li>Mental preparation and race-day routines</li>
+                                    <li>Video analysis and performance metrics</li>
+                                </ul>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>Outcome</h3>
+                                <p>Swimmers achieve county and national qualifying times, compete at regional meets, and develop the mindset for elite performance.</p>
+                            </div>
+                            <div class="programme-meta-grid">
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Schedule</span>
+                                    <span class="programme-meta-value">Mon – Fri, 6:30 – 7:30 PM</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Fee</span>
+                                    <span class="programme-meta-value">KES 1,500 / session</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Max Group Size</span>
+                                    <span class="programme-meta-value">12 swimmers</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Duration</span>
+                                    <span class="programme-meta-value">60 minutes</span>
+                                </div>
+                            </div>
+                            <div class="programme-actions">
+                                <a href="https://wa.me/254717784400?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20the%20Elite%20programme" class="btn btn-outline btn-sm" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire</a>
+                                <button class="btn btn-outline btn-sm" data-open-modal="payment-modal">How to Pay</button>
+                                <a href="/club/enrol.html" class="btn btn-primary btn-sm">Apply &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===========================
-             ADULT SWIMMING SECTION
-             =========================== -->
-        <section id="adult" class="section">
-            <!-- TODO: Explicit adult beginner programme (maps to Novice or a dedicated adult slot) -->
-            <!-- TODO: Client to confirm whether there is a dedicated adult time slot or if adults join standard sessions -->
-            <div class="container">
-                <div class="programme-card">
-                    <h2>Adult Swimming</h2>
-                    <p>TODO: Adult programme details — CRITICAL GAP, awaiting client confirmation</p>
+                <div class="programme-detail programme-detail--pro" id="professional">
+                    <div class="programme-detail__header">
+                        <div class="programme-detail__badge">Level 4</div>
+                        <h2 class="programme-detail__title">Professional</h2>
+                        <p class="programme-detail__tagline">National & international competition pathway</p>
+                    </div>
+                    <div class="programme-detail__grid">
+                        <div class="programme-detail__image">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=400&fit=crop&crop=center" alt="Professional swimmer on starting block" loading="lazy">
+                        </div>
+                        <div class="programme-detail__info">
+                            <div class="programme-info-block">
+                                <h3>Who Is It For?</h3>
+                                <p>Elite-level swimmers targeting national team selection and international competition. Entry by invitation only based on qualifying times and coach recommendation.</p>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>What You'll Learn</h3>
+                                <ul>
+                                    <li>Periodised training plans aligned to competition calendar</li>
+                                    <li>Strength and conditioning integration</li>
+                                    <li>Sports nutrition and recovery protocols</li>
+                                    <li>Travel meet preparation and athlete management</li>
+                                </ul>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>Outcome</h3>
+                                <p>Athletes achieve national records, represent Kenya at international meets, and build a pathway toward professional swimming and scholarship opportunities.</p>
+                            </div>
+                            <div class="programme-meta-grid">
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Schedule</span>
+                                    <span class="programme-meta-value">Mon – Sat, 7:00 – 9:00 AM</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Fee</span>
+                                    <span class="programme-meta-value">KES 2,000 / session</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Max Group Size</span>
+                                    <span class="programme-meta-value">8 swimmers</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Duration</span>
+                                    <span class="programme-meta-value">120 minutes</span>
+                                </div>
+                            </div>
+                            <div class="programme-actions">
+                                <a href="https://wa.me/254717784400?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20the%20Professional%20programme" class="btn btn-outline btn-sm" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire</a>
+                                <button class="btn btn-outline btn-sm" data-open-modal="payment-modal">How to Pay</button>
+                                <a href="/club/enrol.html" class="btn btn-primary btn-sm">Apply &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                </div><!-- /.programmes-grid-2col -->
             </div>
         </section>
 
         <!-- ===========================
-             TEN STAGES — SWIMKENYA METHOD
+             ADULT SWIMMING
              =========================== -->
-        <section id="ten-stages" class="section">
-            <!-- TODO: Brief explainer of the Ten Stages methodology for school-age swimmers -->
-            <!-- TODO: Stage progression chart from Stage 1 through Stage 10 -->
-            <!-- TODO: Link to full SwimKenya School page -->
+        <section id="adult" class="section programme-section">
             <div class="container">
-                <h2>Ten Stages — SwimKenya Method</h2>
-                <p>TODO: Ten Stages overview with link to /school/programs.html</p>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PAYMENT DETAILS
-             =========================== -->
-        <section id="payment" class="section">
-            <!-- TODO: M-Pesa Paybill: 303030, Account: 2054955047 -->
-            <!-- TODO: Step-by-step M-Pesa payment instructions -->
-            <div class="container">
-                <h2>Payment</h2>
-                <p>TODO: M-Pesa payment instructions</p>
+                <div class="programme-detail programme-detail--adult">
+                    <div class="programme-detail__header">
+                        <div class="programme-detail__badge">All Ages</div>
+                        <h2 class="programme-detail__title">Adult Swimming</h2>
+                        <p class="programme-detail__tagline">It's never too late to learn</p>
+                    </div>
+                    <div class="programme-detail__grid">
+                        <div class="programme-detail__image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&crop=center" alt="Adult swimmer in pool" loading="lazy">
+                        </div>
+                        <div class="programme-detail__info">
+                            <div class="programme-info-block">
+                                <h3>Who Is It For?</h3>
+                                <p>Adults of any age who want to learn to swim, improve their technique, or train for fitness. No experience necessary — we welcome complete beginners.</p>
+                            </div>
+                            <div class="programme-info-block">
+                                <h3>What You'll Learn</h3>
+                                <ul>
+                                    <li>Water confidence and overcoming fear</li>
+                                    <li>Basic strokes and breathing technique</li>
+                                    <li>Fitness swimming and lap efficiency</li>
+                                    <li>Open water preparation (optional)</li>
+                                </ul>
+                            </div>
+                            <div class="programme-meta-grid">
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Schedule</span>
+                                    <span class="programme-meta-value">Contact us for available slots</span>
+                                </div>
+                                <div class="programme-meta-item">
+                                    <span class="programme-meta-label">Fee</span>
+                                    <span class="programme-meta-value">KES 1,000 / session</span>
+                                </div>
+                            </div>
+                            <div class="programme-actions">
+                                <a href="https://wa.me/254717784400?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20adult%20swimming" class="btn btn-outline btn-sm" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire</a>
+                                <button class="btn btn-outline btn-sm" data-open-modal="payment-modal">How to Pay</button>
+                                <a href="/club/enrol.html" class="btn btn-primary btn-sm">Apply &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -134,31 +333,83 @@
              FAQ SECTION
              =========================== -->
         <section id="faq" class="section">
-            <!-- TODO: What should my child bring to the first session? -->
-            <!-- TODO: Can my child join mid-term? -->
-            <!-- TODO: What happens if we miss a session? -->
-            <!-- TODO: Are there female coaches available? -->
-            <!-- TODO: Is there parking at the pool? -->
             <div class="container">
-                <h2>Frequently Asked Questions</h2>
+                <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="faq-list">
-                    <div class="faq-item">TODO: FAQ items</div>
+                    <details class="faq-item">
+                        <summary class="faq-question">What should my child bring to the first session?</summary>
+                        <div class="faq-answer">
+                            <p>A swimsuit, goggles, swim cap, towel, and a water bottle. We recommend arriving 10 minutes early for orientation.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Can my child join mid-term?</summary>
+                        <div class="faq-answer">
+                            <p>Yes! We accept new swimmers at any time. Our coaches will assess your child's level and place them in the appropriate group.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">What happens if we miss a session?</summary>
+                        <div class="faq-answer">
+                            <p>Missed sessions can be made up within the same week, subject to availability. Please notify your coach in advance if possible.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Are there female coaches available?</summary>
+                        <div class="faq-answer">
+                            <p>Yes, we have both male and female certified coaches. Please let us know your preference when enrolling and we'll accommodate where possible.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Is there parking at the pool?</summary>
+                        <div class="faq-answer">
+                            <p>Yes, there is ample parking available at our training venues. Specific directions are shared upon enrolment.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">How do I know which programme is right for my child?</summary>
+                        <div class="faq-answer">
+                            <p>If you're unsure, book a trial session and our coaches will assess your child's ability and recommend the best programme. You can also WhatsApp us for advice.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- ===========================
-             PRIMARY CTA
-             =========================== -->
-        <section id="cta" class="section cta-section">
-            <div class="container">
-                <div class="cta-buttons">
-                    <a href="/club/enrol.html" class="btn btn-primary">Enrol Now</a>
-                    <a href="#" class="btn btn-whatsapp">WhatsApp to Ask a Question</a>
+    </main>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="payment-modal">
+        <div class="modal">
+            <button class="modal__close" data-close-modal>&times;</button>
+            <div class="modal__content">
+                <h2 class="modal__title">How to Pay via M-Pesa</h2>
+                <div class="payment-card" style="border: none; padding: 0;">
+                    <div class="payment-card__steps">
+                        <ol>
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa na M-Pesa</strong></li>
+                            <li>Select <strong>Pay Bill</strong></li>
+                            <li>Enter Business Number: <strong>303030</strong></li>
+                            <li>Enter Account Number: <strong>2054955047</strong></li>
+                            <li>Enter the amount for your programme</li>
+                            <li>Enter your M-Pesa PIN and confirm</li>
+                        </ol>
+                    </div>
+                    <div class="payment-card__details">
+                        <div class="payment-detail">
+                            <span>Paybill Number</span>
+                            <strong>303030</strong>
+                        </div>
+                        <div class="payment-detail">
+                            <span>Account Number</span>
+                            <strong>2054955047</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <div id="site-footer"></div>
     <script src="/js/main.js"></script>

@@ -12,110 +12,118 @@
 
     <main>
         <!-- ===========================
-             PAGE INTRODUCTION
+             PAGE HERO
              =========================== -->
-        <section id="athletes-intro" class="section">
-            <!-- TODO: "Visa Dolphins has produced athletes who compete at county, national, and international level. Our roster is public..." -->
-            <!-- TODO: Link to Visa Dolphins SwimCloud team page -->
+        <section class="page-hero">
             <div class="container">
-                <h1>Our Athletes</h1>
-                <p>TODO: Introduction with SwimCloud link</p>
+                <span class="hero-badge">VISA DOLPHINS ATHLETES</span>
+                <h1 class="page-hero__title">Meet Our <span class="text-accent">Athletes</span></h1>
+                <p class="page-hero__desc">From beginners to national team representatives — our swimmers compete at county, national, and international level. Every champion started with a single stroke.</p>
             </div>
         </section>
 
         <!-- ===========================
-             FEATURED ATHLETE PROFILES
+             ATHLETES GRID
              =========================== -->
-        <section id="featured-athletes" class="section">
-            <!-- TODO: Each profile: full name, photo, current programme (Elite / Professional), personal bests by stroke and distance, competition highlights -->
-            <!-- TODO: Profile 1: Hussein — current Kenyan national team athlete -->
-            <!-- TODO: Profile 2: Nadia — current Kenyan national team athlete -->
-            <!-- TODO: Profile 3: Sudais Bashir — represented Somalia at national level -->
-            <!-- TODO: Client to supply photos, personal bests, and career highlights for each athlete -->
-            <!-- TODO: SwimCloud data to be pulled from existing roster -->
+        <section class="section">
             <div class="container">
-                <h2>Featured Athletes</h2>
-                <div class="athlete-grid">
-                    <div class="athlete-card">TODO: Hussein profile</div>
-                    <div class="athlete-card">TODO: Nadia profile</div>
-                    <div class="athlete-card">TODO: Sudais Bashir profile</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===========================
-             COMPETITION HISTORY — CLUB RESULTS
-             =========================== -->
-        <section id="competition-history" class="section">
-            <!-- TODO: List of recent meets with date, location, and notable results -->
-            <!-- TODO: Kenyan National Championships — May 29–31, 2026 -->
-            <!-- TODO: Kiambu Aquatics Invitational — May 23–24, 2026 -->
-            <!-- TODO: Ongoing: pull from SwimCloud meet results page -->
-            <div class="container">
-                <h2>Competition History</h2>
-                <div class="results-list">
-                    <p>TODO: Meet results list</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PERSONAL BEST RECORDS BOARD
-             =========================== -->
-        <section id="records-board" class="section">
-            <!-- TODO: Table or visual board showing club records by event (50m freestyle, 100m backstroke, etc.) -->
-            <!-- TODO: Data source: SwimCloud times -->
-            <div class="container">
-                <h2>Club Records</h2>
-                <table class="records-table">
-                    <thead>
-                        <tr>
-                            <th>Event</th>
-                            <th>Athlete</th>
-                            <th>Time</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td colspan="4">TODO: Club records data from SwimCloud</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ===========================
-             BRAND AMBASSADOR SECTION
-             =========================== -->
-        <section id="ambassadors" class="section">
-            <!-- TODO: "Interested in partnering with our athletes? Download our media kit or contact us." -->
-            <!-- TODO: Link to Sponsor page -->
-            <!-- TODO: Downloadable PDF media kit (to be created — see Sponsor page) -->
-            <div class="container">
-                <h2>Brand Ambassadors</h2>
-                <p>TODO: Ambassador partnership info with link to /sponsor.html</p>
-            </div>
-        </section>
-
-        <!-- ===========================
-             SWIMCLOUD WIDGET OR LINK
-             =========================== -->
-        <section id="swimcloud" class="section">
-            <!-- TODO: Embed or prominent link to swimcloud.com/team/visa-dolphins for real-time data -->
-            <div class="container">
-                <h2>Live Performance Data</h2>
-                <p>TODO: SwimCloud embed or link</p>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PRIMARY CTA
-             =========================== -->
-        <section id="cta" class="section cta-section">
-            <div class="container">
-                <div class="cta-buttons">
-                    <a href="/sponsor.html" class="btn btn-primary">Partner With Our Athletes</a>
-                    <a href="/club/enrol.html" class="btn btn-secondary">Book a Trial</a>
-                    <a href="#" class="btn">View on SwimCloud</a>
+                <div class="athletes-grid">
+                    <a href="/club/athlete-detail.html?id=hussein" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1622629797619-c100e3e67e2e?w=400&h=500&fit=crop&crop=face" alt="Hussein" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Professional</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Hussein</h3>
+                            <p class="athlete-card__achievement">Kenyan National Team athlete</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=nadia" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop&crop=face" alt="Nadia" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Professional</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Nadia</h3>
+                            <p class="athlete-card__achievement">Kenyan National Team athlete</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=sudais" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=400&h=500&fit=crop&crop=face" alt="Sudais Bashir" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Elite</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Sudais Bashir</h3>
+                            <p class="athlete-card__achievement">Represented Somalia at national level</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=amara" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=400&h=500&fit=crop&crop=face" alt="Amara Ochieng" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Elite</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Amara Ochieng</h3>
+                            <p class="athlete-card__achievement">County champion — 100m Butterfly</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=kevin" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400&h=500&fit=crop&crop=face" alt="Kevin Mwangi" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Elite</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Kevin Mwangi</h3>
+                            <p class="athlete-card__achievement">National qualifier — 200m Freestyle</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=zara" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=500&fit=crop&crop=face" alt="Zara Kimani" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Zara Kimani</h3>
+                            <p class="athlete-card__achievement">Club record — 50m Backstroke (age group)</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=omar" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=400&h=500&fit=crop&crop=face" alt="Omar Hassan" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Omar Hassan</h3>
+                            <p class="athlete-card__achievement">Most improved swimmer 2025</p>
+                        </div>
+                    </a>
+                    <a href="/club/athlete-detail.html?id=faith" class="athlete-card">
+                        <div class="athlete-card__image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face" alt="Faith Wanjiku" loading="lazy">
+                            <div class="athlete-card__overlay">
+                                <span class="athlete-card__programme">Elite</span>
+                            </div>
+                        </div>
+                        <div class="athlete-card__info">
+                            <h3 class="athlete-card__name">Faith Wanjiku</h3>
+                            <p class="athlete-card__achievement">County champion — 200m Individual Medley</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
