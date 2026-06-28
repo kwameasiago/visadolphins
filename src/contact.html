@@ -12,104 +12,177 @@
 
     <main>
         <!-- ===========================
-             WHATSAPP BUTTON — PRIMARY CTA
+             PAGE HERO
              =========================== -->
-        <section id="whatsapp-cta" class="section">
-            <!-- TODO: Phone: 0717784400 or 0740956801 -->
-            <!-- TODO: Pre-filled message template based on which page visitor came from -->
+        <section class="page-hero">
             <div class="container">
-                <h1>Contact Us</h1>
-                <a href="https://wa.me/254717784400" class="btn btn-whatsapp btn-large">WhatsApp Us Now</a>
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">Get in <span class="text-accent">Touch</span></h1>
+                <p class="page-hero__desc">We'd love to hear from you. Reach out via WhatsApp, phone, or the form below.</p>
             </div>
         </section>
 
         <!-- ===========================
-             PHONE NUMBERS
+             CONTACT CARDS
              =========================== -->
-        <section id="phone" class="section">
-            <!-- TODO: Office line 1: 0717784400 -->
-            <!-- TODO: Office line 2: 0740956801 -->
+        <section class="section">
             <div class="container">
-                <h2>Call Us</h2>
-                <p>TODO: Phone numbers with click-to-call links</p>
+                <div class="contact-cards">
+                    <a href="https://wa.me/254717784400?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Visa%20Dolphins" target="_blank" class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.593-.838-6.328-2.236l-.442-.368-3.262 1.093 1.093-3.262-.368-.442A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                        </div>
+                        <h3 class="contact-card__title">WhatsApp</h3>
+                        <p class="contact-card__detail">+254 717 784 400</p>
+                        <span class="contact-card__cta">Chat Now &rarr;</span>
+                    </a>
+                    <a href="tel:+254717784400" class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <h3 class="contact-card__title">Phone</h3>
+                        <p class="contact-card__detail">0717 784 400</p>
+                        <p class="contact-card__detail">0740 956 801</p>
+                        <span class="contact-card__cta">Call Now &rarr;</span>
+                    </a>
+                    <a href="mailto:info@visadolphins.co.ke" class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h3 class="contact-card__title">Email</h3>
+                        <p class="contact-card__detail">info@visadolphins.co.ke</p>
+                        <span class="contact-card__cta">Send Email &rarr;</span>
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- ===========================
-             POOL LOCATIONS WITH MAPS
+             LOCATIONS
              =========================== -->
-        <section id="locations" class="section">
-            <!-- TODO: Location 1: Westlands Primary Swimming Pool — Google Maps embed -->
-            <!-- TODO: Location 2: Kasarani Aquatic Stadium, Amalia Springs — Google Maps embed -->
-            <!-- TODO: Operating hours for each location -->
-            <!-- TODO: Nearest landmark or directions note for first-time visitors -->
+        <section class="section">
             <div class="container">
-                <h2>Our Locations</h2>
-                <div class="locations-grid">
-                    <div class="location-card">
-                        <h3>Westlands Primary Swimming Pool</h3>
-                        <p>TODO: Google Maps embed, operating hours, directions</p>
+                <h2 class="section-title">Our Locations</h2>
+                <div class="contact-locations">
+                    <div class="contact-location-card">
+                        <div class="contact-location-card__map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8!2d36.8!3d-1.26!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTUnMzYuMCJTIDM2wrA0OCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="contact-location-card__info">
+                            <h3>Westlands Primary Swimming Pool</h3>
+                            <p>Westlands, Nairobi</p>
+                            <ul>
+                                <li><strong>Mon–Fri:</strong> 4:00 PM – 7:00 PM</li>
+                                <li><strong>Saturday:</strong> 8:00 AM – 12:00 PM</li>
+                                <li><strong>Sunday:</strong> Closed</li>
+                            </ul>
+                            <p class="contact-location-card__note">Programmes: Novice, Intermediate, Elite</p>
+                        </div>
                     </div>
-                    <div class="location-card">
-                        <h3>Kasarani Aquatic Stadium (Amalia Springs)</h3>
-                        <p>TODO: Google Maps embed, operating hours, directions</p>
+                    <div class="contact-location-card">
+                        <div class="contact-location-card__map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d36.9!3d-1.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTMnMTIuMCJTIDM2wrA1NCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="contact-location-card__info">
+                            <h3>Kasarani Aquatic Stadium</h3>
+                            <p>Amalia Springs, Kasarani, Nairobi</p>
+                            <ul>
+                                <li><strong>Mon–Fri:</strong> 5:30 AM – 7:30 AM</li>
+                                <li><strong>Saturday:</strong> 6:00 AM – 9:00 AM</li>
+                                <li><strong>Sunday:</strong> Closed</li>
+                            </ul>
+                            <p class="contact-location-card__note">Programme: Professional Squad</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ===========================
-             GENERAL ENQUIRY FORM
+             ENQUIRY FORM
              =========================== -->
-        <section id="enquiry-form" class="section">
-            <!-- TODO: Name, phone, email, subject (dropdown: Swim Club / SwimKenya School / Equipment / Media), message -->
-            <!-- TODO: Estimated response time stated: "We aim to respond within 24 hours" -->
+        <section class="section" id="enquiry-form">
             <div class="container">
-                <h2>Send Us a Message</h2>
-                <form class="enquiry-form" action="#" method="POST">
-                    <p>TODO: General enquiry form fields</p>
-                </form>
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-header">
+                        <h2 class="section-title">Send Us a Message</h2>
+                        <p class="contact-form-note">We aim to respond within 24 hours.</p>
+                    </div>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="cf-name">Full Name</label>
+                                <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="cf-phone">Phone Number</label>
+                                <input type="tel" id="cf-phone" name="phone" placeholder="07XX XXX XXX" required>
+                            </div>
+                        </div>
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="cf-email">Email Address</label>
+                                <input type="email" id="cf-email" name="email" placeholder="you@example.com">
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="cf-subject">Subject</label>
+                                <select id="cf-subject" name="subject" required>
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="swim-club">Swim Club Enquiry</option>
+                                    <option value="school">SwimKenya School</option>
+                                    <option value="equipment">Sports Equipment</option>
+                                    <option value="partnership">Partnership / Sponsorship</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="contact-form__field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
 
         <!-- ===========================
-             SOCIAL MEDIA LINKS
+             SOCIAL & PAYMENT
              =========================== -->
-        <section id="social" class="section">
-            <!-- TODO: TikTok: Visa Dolphins Kenya -->
-            <!-- TODO: Instagram: Visa Dolphins Kenya -->
-            <!-- TODO: Facebook: to be confirmed with client -->
+        <section class="section">
             <div class="container">
-                <h2>Follow Us</h2>
-                <ul class="social-links">
-                    <li>TODO: TikTok link</li>
-                    <li>TODO: Instagram link</li>
-                    <li>TODO: Facebook link</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PAYMENT DETAILS
-             =========================== -->
-        <section id="payment" class="section">
-            <!-- TODO: M-Pesa Paybill: 303030 / Account: 2054955047 -->
-            <!-- TODO: Show this here too — parents often come to Contact looking for how to pay -->
-            <div class="container">
-                <h2>Payment Details</h2>
-                <p>TODO: M-Pesa payment details</p>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PRIMARY CTA
-             =========================== -->
-        <section id="cta" class="section cta-section">
-            <div class="container">
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-whatsapp">WhatsApp Us Now</a>
-                    <a href="tel:+254717784400" class="btn btn-primary">Call Us</a>
-                    <a href="#enquiry-form" class="btn btn-secondary">Submit Enquiry</a>
+                <div class="contact-bottom-grid">
+                    <div class="contact-social">
+                        <h3>Follow Us</h3>
+                        <div class="contact-social__links">
+                            <a href="#" target="_blank" class="contact-social__link" aria-label="TikTok">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .55.04.81.1v-3.5a6.37 6.37 0 00-.81-.05A6.34 6.34 0 003.15 15.7a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.4a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.83z"/></svg>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="#" target="_blank" class="contact-social__link" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" target="_blank" class="contact-social__link" aria-label="Facebook">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-payment">
+                        <h3>Payment Details</h3>
+                        <div class="contact-payment__card">
+                            <p class="contact-payment__method">M-Pesa</p>
+                            <div class="contact-payment__row">
+                                <span>Paybill Number</span>
+                                <strong>303030</strong>
+                            </div>
+                            <div class="contact-payment__row">
+                                <span>Account Number</span>
+                                <strong>2054955047</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -12,78 +12,93 @@
 
     <main>
         <!-- ===========================
-             UPCOMING EVENTS SECTION
+             PAGE HERO
              =========================== -->
-        <section id="upcoming-events" class="section">
-            <!-- TODO: Upcoming swim meets: date, location, qualifying standards if applicable -->
-            <!-- TODO: Club social events, fun galas, annual gala dates -->
-            <!-- TODO: SwimKenya School enrolment dates and intake information -->
-            <!-- TODO: Coach certification intake dates -->
+        <section class="page-hero">
             <div class="container">
-                <h1>News & Events</h1>
-                <h2>Upcoming Events</h2>
-                <div class="events-list">
-                    <p>TODO: Upcoming events listings</p>
-                </div>
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">News & <span class="text-accent">Events</span></h1>
+                <p class="page-hero__desc">Competition results, upcoming meets, athlete stories, and club announcements.</p>
             </div>
         </section>
 
         <!-- ===========================
-             NEWS / BLOG POSTS
+             NEWS GRID
              =========================== -->
-        <section id="news-posts" class="section">
-            <!-- TODO: Meet results: top performances, athlete highlights, club records broken -->
-            <!-- TODO: Athlete profiles and stories -->
-            <!-- TODO: Coaching tips and swimming education articles -->
-            <!-- TODO: Partnership announcements -->
-            <!-- TODO: Initial content needed at launch: minimum 4–6 posts -->
+        <section class="section">
             <div class="container">
-                <h2>Latest News</h2>
                 <div class="news-grid">
-                    <article class="news-card">TODO: News post 1</article>
-                    <article class="news-card">TODO: News post 2</article>
-                    <article class="news-card">TODO: News post 3</article>
-                    <article class="news-card">TODO: News post 4</article>
-                </div>
-            </div>
-        </section>
+                    <a href="/news-detail.html?id=nationals-2026" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=600&h=340&fit=crop&crop=center" alt="Swimmers at competition start blocks" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Results</span>
+                            <h3 class="news-card__title">Kenyan National Championships 2026</h3>
+                            <p class="news-card__desc">May 29–31, 2026 — Our athletes competed across multiple events in Nairobi. Full results and highlights inside.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
 
-        <!-- ===========================
-             RESULTS ARCHIVE
-             =========================== -->
-        <section id="results-archive" class="section">
-            <!-- TODO: Past meet results listed chronologically -->
-            <!-- TODO: Can pull from SwimCloud meet results -->
-            <div class="container">
-                <h2>Results Archive</h2>
-                <div class="results-list">
-                    <p>TODO: Chronological meet results (pull from SwimCloud)</p>
-                </div>
-            </div>
-        </section>
+                    <a href="/news-detail.html?id=kiambu-invitational" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=340&fit=crop&crop=center" alt="Swimming pool competition" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Results</span>
+                            <h3 class="news-card__title">Kiambu Aquatics Invitational</h3>
+                            <p class="news-card__desc">May 23–24, 2026 — Club members competed across all age groups at the Kiambu Invitational Championship.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
 
-        <!-- ===========================
-             SOCIAL MEDIA FEED
-             =========================== -->
-        <section id="social-feed" class="section">
-            <!-- TODO: Embedded TikTok or Instagram feed showing most recent posts -->
-            <!-- TODO: Keeps page fresh without manual updates -->
-            <div class="container">
-                <h2>Social Media</h2>
-                <div class="social-embed">
-                    <p>TODO: Embedded TikTok/Instagram feed</p>
-                </div>
-            </div>
-        </section>
+                    <a href="/news-detail.html?id=new-season-registration" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=340&fit=crop&crop=center" alt="Swimmer training in pool" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Enrolment</span>
+                            <h3 class="news-card__title">New Season Registration Open</h3>
+                            <p class="news-card__desc">Register now for the next training season. All programmes from Novice to Professional are accepting new swimmers.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
 
-        <!-- ===========================
-             PRIMARY CTA
-             =========================== -->
-        <section id="cta" class="section cta-section">
-            <div class="container">
-                <div class="cta-buttons">
-                    <a href="/club/athletes.html" class="btn btn-primary">View Full Results</a>
-                    <a href="/club/enrol.html" class="btn btn-secondary">Enrol for Next Season</a>
+                    <a href="/news-detail.html?id=kcaa-recognition" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=600&h=340&fit=crop&crop=center" alt="Official recognition ceremony" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Announcement</span>
+                            <h3 class="news-card__title">KCAA No-Objection Certificate Issued</h3>
+                            <p class="news-card__desc">February 2026 — Visa Dolphins received official recognition from the Kiambu County Aquatics Association.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="/news-detail.html?id=decathlon-partnership" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=340&fit=crop&crop=center" alt="Sports equipment" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Partnership</span>
+                            <h3 class="news-card__title">Decathlon Kenya Equipment Partnership</h3>
+                            <p class="news-card__desc">Visa Dolphins Sports announces a new equipment and resource partnership with Decathlon Kenya for professional aquatic gear.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="/news-detail.html?id=sudais-somalia" class="news-card">
+                        <div class="news-card__media">
+                            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&h=340&fit=crop&crop=center" alt="Swimmer celebrating" loading="lazy">
+                        </div>
+                        <div class="news-card__body">
+                            <span class="stat-badge">Athlete Spotlight</span>
+                            <h3 class="news-card__title">Sudais Bashir Represents Somalia</h3>
+                            <p class="news-card__desc">Visa Dolphins athlete Sudais Bashir selected to represent Somalia at national level — a testament to our development pathway.</p>
+                            <span class="news-card__link">Read more &rarr;</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

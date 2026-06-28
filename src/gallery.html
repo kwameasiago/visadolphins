@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Visa Dolphins Gallery — Training photos, competition moments, videos, and more.">
+    <meta name="description" content="Visa Dolphins Gallery — Training photos, competition moments, and more.">
     <title>Gallery — Visa Dolphins</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -12,106 +12,108 @@
 
     <main>
         <!-- ===========================
-             PHOTO GALLERY — TRAINING
+             PAGE HERO
              =========================== -->
-        <section id="gallery-training" class="section">
-            <!-- TODO: Athletes training at Westlands Primary pool -->
-            <!-- TODO: Athletes training at Kasarani Aquatic Stadium -->
-            <!-- TODO: Coaches working with swimmers — must show coach-swimmer interaction -->
-            <!-- TODO: Children in the Novice programme — safety and enjoyment visible -->
-            <!-- TODO: Professional programme early morning sessions -->
-            <!-- TODO: Minimum 20 high-quality photos needed at launch -->
+        <section class="page-hero">
             <div class="container">
-                <h1>Gallery</h1>
-                <h2>Training</h2>
-                <div class="photo-grid">
-                    <p>TODO: Training photos (minimum 20 needed)</p>
-                </div>
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">Photo <span class="text-accent">Gallery</span></h1>
+                <p class="page-hero__desc">Moments from training, competition, and our SwimKenya School programmes.</p>
             </div>
         </section>
 
         <!-- ===========================
-             PHOTO GALLERY — COMPETITION
+             GALLERY
              =========================== -->
-        <section id="gallery-competition" class="section">
-            <!-- TODO: Race photos from Kenyan National Championships, Kiambu Invitational -->
-            <!-- TODO: Podium / medal moments -->
-            <!-- TODO: Team photos at meets -->
-            <!-- TODO: Minimum 15 competition photos needed -->
+        <section class="section">
             <div class="container">
-                <h2>Competition</h2>
-                <div class="photo-grid">
-                    <p>TODO: Competition photos (minimum 15 needed)</p>
+                <div class="gallery-filters">
+                    <button class="gallery-filter active" data-filter="all">All</button>
+                    <button class="gallery-filter" data-filter="training">Training</button>
+                    <button class="gallery-filter" data-filter="competition">Competition</button>
+                    <button class="gallery-filter" data-filter="school">School</button>
                 </div>
+
+                <div class="hex-grid" id="hex-grid">
+                    <div class="hex-item" data-category="training" data-caption="Morning training session at Westlands Primary Pool">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=500&h=500&fit=crop" alt="Morning training session" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="competition" data-caption="Athletes at the start blocks — Kenyan National Championships">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=500&h=500&fit=crop" alt="Competition start blocks" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="training" data-caption="Freestyle technique drills during evening session">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&h=500&fit=crop" alt="Freestyle technique" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="school" data-caption="SwimKenya School — Stage 3 students learning backstroke">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=500&h=500&fit=crop" alt="School programme backstroke" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="competition" data-caption="Relay team celebration after winning gold">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=500&h=500&fit=crop" alt="Relay celebration" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="training" data-caption="Butterfly drills with Coach Japheth">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&h=500&fit=crop" alt="Butterfly drills" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="school" data-caption="Learn-to-swim class — building water confidence">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=500&h=500&fit=crop" alt="Learn to swim class" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="competition" data-caption="Kiambu Invitational — 200m freestyle heat">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1622629797619-c100e3e67e2e?w=500&h=500&fit=crop" alt="200m freestyle heat" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="training" data-caption="Early morning Professional squad session at Kasarani">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=500&fit=crop" alt="Professional squad" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="school" data-caption="Stage 1 — First time in the deep end">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=500&h=500&fit=crop" alt="First time deep end" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="competition" data-caption="Medal ceremony — Junior National Championships">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=500&h=500&fit=crop" alt="Medal ceremony" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="hex-item" data-category="training" data-caption="Kickboard drills — Novice programme">
+                        <div class="hex-shape">
+                            <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?w=500&h=500&fit=crop" alt="Kickboard drills" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="gallery-consent">All photos published with the consent of athletes and guardians.</p>
             </div>
         </section>
 
         <!-- ===========================
-             VIDEO SECTION
+             LIGHTBOX MODAL
              =========================== -->
-        <section id="gallery-videos" class="section">
-            <!-- TODO: Short training reel (60–90 seconds) — most impactful content -->
-            <!-- TODO: Athlete highlight clips -->
-            <!-- TODO: Club intro video (if available or to be produced) -->
-            <!-- TODO: Can embed from YouTube or TikTok to reduce hosting cost -->
-            <div class="container">
-                <h2>Videos</h2>
-                <div class="video-grid">
-                    <p>TODO: Video embeds (YouTube/TikTok)</p>
-                </div>
+        <div class="lightbox" id="gallery-lightbox">
+            <div class="lightbox__overlay"></div>
+            <button class="lightbox__close" aria-label="Close">&times;</button>
+            <button class="lightbox__prev" aria-label="Previous">&lsaquo;</button>
+            <button class="lightbox__next" aria-label="Next">&rsaquo;</button>
+            <div class="lightbox__content">
+                <img class="lightbox__image" src="" alt="">
+                <p class="lightbox__caption"></p>
             </div>
-        </section>
-
-        <!-- ===========================
-             SWIMKENYA SCHOOL PHOTOS
-             =========================== -->
-        <section id="gallery-school" class="section">
-            <!-- TODO: Children in school programme sessions -->
-            <!-- TODO: Ten Stages progression visible — beginner through advanced -->
-            <div class="container">
-                <h2>SwimKenya School</h2>
-                <div class="photo-grid">
-                    <p>TODO: School programme photos</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===========================
-             EQUIPMENT GALLERY
-             =========================== -->
-        <section id="gallery-equipment" class="section">
-            <!-- TODO: Visa Dolphins Sports: photos of gear available for sale -->
-            <!-- TODO: Can be simple product photos on clean background -->
-            <div class="container">
-                <h2>Equipment</h2>
-                <div class="photo-grid">
-                    <p>TODO: Equipment product photos</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PHOTO RELEASE / CONSENT NOTE
-             =========================== -->
-        <section id="consent-note" class="section">
-            <!-- TODO: Footer note: "All photos published with the consent of athletes and guardians" -->
-            <!-- TODO: Client to ensure all photo subjects or their guardians have given consent -->
-            <div class="container">
-                <p class="consent-note">TODO: Photo consent disclaimer</p>
-            </div>
-        </section>
-
-        <!-- ===========================
-             PRIMARY CTA
-             =========================== -->
-        <section id="cta" class="section cta-section">
-            <div class="container">
-                <div class="cta-buttons">
-                    <a href="/club/enrol.html" class="btn btn-primary">Enrol Now</a>
-                    <a href="#" class="btn btn-secondary">Book a Trial Session</a>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <div id="site-footer"></div>

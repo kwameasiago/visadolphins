@@ -495,6 +495,374 @@
         }
     }
 
+    // ===========================
+    // Equipment Detail Page Renderer
+    // ===========================
+    var equipmentDetailContainer = document.getElementById('equipment-detail-content');
+    if (equipmentDetailContainer) {
+        var equipmentData = {
+            'goggles-racing': {
+                name: 'Racing Goggles',
+                image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&h=600&fit=crop',
+                category: 'Competitive',
+                price: 'KSh 2,500',
+                description: 'Low-profile hydrodynamic goggles engineered for competition swimming. Designed to minimise drag and maximise peripheral vision during races. The anti-fog, UV-protected lenses provide crystal-clear visibility in any pool conditions.',
+                features: [
+                    'Low-profile hydrodynamic frame',
+                    'Anti-fog & UV-protected lenses',
+                    'Double silicone strap for secure fit',
+                    'Interchangeable nose bridges (S/M/L)',
+                    'Available in mirrored and clear lens options'
+                ],
+                sizes: 'One size fits most (adjustable strap)'
+            },
+            'goggles-training': {
+                name: 'Training Goggles',
+                image: 'https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=600&h=600&fit=crop',
+                category: 'Training',
+                price: 'KSh 1,800',
+                description: 'Comfortable wide-lens goggles built for daily training sessions. The soft gasket seal and wide field of view make them ideal for long workouts. Anti-fog coating ensures clear vision throughout your session.',
+                features: [
+                    'Wide-angle panoramic lenses',
+                    'Soft silicone gasket for comfort',
+                    'Anti-fog coating',
+                    'Quick-adjust buckle system',
+                    'Suitable for indoor and outdoor pools'
+                ],
+                sizes: 'One size fits most (adjustable strap)'
+            },
+            'swimsuit-mens': {
+                name: "Men's Racing Suit",
+                image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=600&fit=crop',
+                category: 'Competitive',
+                price: 'KSh 4,500',
+                description: 'High-compression racing jammer designed for maximum speed in the water. The water-repellent fabric reduces drag while the compression panels support key muscle groups during races.',
+                features: [
+                    'High-compression fabric technology',
+                    'Water-repellent surface coating',
+                    'Flatlock stitching to reduce drag',
+                    'Chlorine-resistant material',
+                    'Drawstring waist for secure fit'
+                ],
+                sizes: 'Available in sizes 24–36'
+            },
+            'swimsuit-womens': {
+                name: "Women's Racing Suit",
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop',
+                category: 'Competitive',
+                price: 'KSh 5,200',
+                description: 'Streamlined one-piece racing suit with chlorine-resistant fabric and reinforced stitching. Engineered for competitive swimmers who demand performance and durability from their race kit.',
+                features: [
+                    'Streamlined one-piece design',
+                    'Chlorine-resistant fabric (300+ hours)',
+                    'Reinforced stitching at stress points',
+                    'Open back for freedom of movement',
+                    'Compression fit for muscle support'
+                ],
+                sizes: 'Available in sizes 26–38'
+            },
+            'swim-cap': {
+                name: 'Silicone Swim Cap',
+                image: 'https://images.unsplash.com/photo-1560090995-01632a28895b?w=600&h=600&fit=crop',
+                category: 'Essentials',
+                price: 'KSh 800',
+                description: 'Durable silicone swim cap that reduces drag and protects hair from chlorine damage. The ergonomic shape fits comfortably without pulling, and the material maintains its shape over hundreds of uses.',
+                features: [
+                    '100% premium silicone construction',
+                    'Ergonomic wrinkle-free design',
+                    'Protects hair from chlorine',
+                    'Tear-resistant material',
+                    'Available in 8 colours'
+                ],
+                sizes: 'One size (adult), Junior size available'
+            },
+            'fins-training': {
+                name: 'Training Fins',
+                image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop',
+                category: 'Training',
+                price: 'KSh 3,200',
+                description: 'Short-blade training fins designed to build leg strength, improve ankle flexibility, and refine kick technique. The shorter blade encourages a faster kick tempo without over-reliance on fin propulsion.',
+                features: [
+                    'Short-blade design for natural kick tempo',
+                    'Closed-heel pocket for secure fit',
+                    'Soft rubber compound — comfortable for long sets',
+                    'Builds leg strength and ankle flexibility',
+                    'Suitable for all four strokes'
+                ],
+                sizes: 'Available in sizes XS (35-36) to XL (44-45)'
+            },
+            'kickboard': {
+                name: 'Kickboard',
+                image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&h=600&fit=crop',
+                category: 'Training',
+                price: 'KSh 1,500',
+                description: 'Lightweight EVA foam kickboard ideal for targeted leg training and learn-to-swim programmes. The ergonomic shape provides multiple grip positions for different training drills.',
+                features: [
+                    'High-density EVA foam — lightweight and durable',
+                    'Ergonomic shape with multiple grip options',
+                    'Smooth edges for comfortable hold',
+                    'Suitable for all skill levels',
+                    'Ideal for kick drills and learn-to-swim'
+                ],
+                sizes: 'Standard (42cm x 28cm)'
+            },
+            'pull-buoy': {
+                name: 'Pull Buoy',
+                image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&h=600&fit=crop',
+                category: 'Training',
+                price: 'KSh 1,200',
+                description: 'Ergonomic pull buoy for isolating upper body strength and improving stroke technique. Placed between the thighs to eliminate kick, allowing swimmers to focus entirely on their pull and body rotation.',
+                features: [
+                    'Figure-8 ergonomic shape',
+                    'High-density EVA foam for buoyancy',
+                    'Comfortable grip between thighs',
+                    'Develops upper body strength',
+                    'Improves body position and rotation'
+                ],
+                sizes: 'Standard (adult), Junior size available'
+            }
+        };
+
+        var eqParams = new URLSearchParams(window.location.search);
+        var equipmentId = eqParams.get('id');
+        var equipment = equipmentId ? equipmentData[equipmentId] : null;
+
+        if (equipment) {
+            document.title = equipment.name + ' — Visa Dolphins Sports';
+            var featureItems = equipment.features.map(function (f) {
+                return '<li>' + f + '</li>';
+            }).join('');
+
+            equipmentDetailContainer.innerHTML = ''
+                + '<section class="equipment-hero">'
+                + '  <div class="container">'
+                + '    <a href="/sports/equipment.html" class="athlete-back-link">&larr; Back to Equipment</a>'
+                + '    <div class="equipment-hero__grid">'
+                + '      <div class="equipment-hero__photo">'
+                + '        <img src="' + equipment.image + '" alt="' + equipment.name + '">'
+                + '        <span class="equipment-hero__category">' + equipment.category + '</span>'
+                + '      </div>'
+                + '      <div class="equipment-hero__info">'
+                + '        <span class="equipment-hero__price">' + equipment.price + '</span>'
+                + '        <h1 class="equipment-hero__name">' + equipment.name + '</h1>'
+                + '        <p class="equipment-hero__desc">' + equipment.description + '</p>'
+                + '        <p class="equipment-hero__sizes"><strong>Sizes:</strong> ' + equipment.sizes + '</p>'
+                + '        <a href="https://wa.me/254700000000?text=Hi%2C%20I%27d%20like%20to%20order%20' + encodeURIComponent(equipment.name) + '" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">'
+                + '          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.593-.838-6.328-2.236l-.442-.368-3.262 1.093 1.093-3.262-.368-.442A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>'
+                + '          Enquire via WhatsApp'
+                + '        </a>'
+                + '      </div>'
+                + '    </div>'
+                + '  </div>'
+                + '</section>'
+                + '<section class="section">'
+                + '  <div class="container">'
+                + '    <div class="equipment-features">'
+                + '      <h2 class="athlete-section-title">Features</h2>'
+                + '      <ul class="athlete-highlights-list">' + featureItems + '</ul>'
+                + '    </div>'
+                + '  </div>'
+                + '</section>';
+        } else {
+            equipmentDetailContainer.innerHTML = ''
+                + '<section class="page-hero">'
+                + '  <div class="container" style="text-align:center;">'
+                + '    <h1 class="page-hero__title">Product Not Found</h1>'
+                + '    <p class="page-hero__desc">Sorry, we couldn\'t find that product.</p>'
+                + '    <a href="/sports/equipment.html" class="btn btn-primary" style="margin-top:2rem;">View All Equipment</a>'
+                + '  </div>'
+                + '</section>';
+        }
+    }
+
+    // ===========================
+    // News Detail Page Renderer
+    // ===========================
+    var newsDetailContainer = document.getElementById('news-detail-content');
+    if (newsDetailContainer) {
+        var newsData = {
+            'nationals-2026': {
+                title: 'Kenyan National Championships 2026',
+                badge: 'Results',
+                date: 'May 29–31, 2026',
+                location: 'Nairobi',
+                image: 'https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=900&h=450&fit=crop&crop=center',
+                content: '<p>Visa Dolphins Swim Club athletes delivered outstanding performances at the Kenyan National Championships held May 29–31, 2026 in Nairobi.</p><p>Our swimmers competed across multiple events including freestyle, backstroke, breaststroke, butterfly, and individual medley distances. Several athletes achieved personal bests, with two swimmers qualifying for upcoming international competitions.</p><p>Highlights include Hussein\'s dominant performance in the 200m freestyle and Nadia\'s impressive showing in the 100m backstroke. Both athletes continue to represent Kenya at the highest level.</p><p>The National Championships served as a crucial development opportunity for our Intermediate and Elite programme athletes, many of whom competed at national level for the first time. Their experience and confidence will be invaluable going forward.</p><p>Congratulations to all our athletes, coaches, and supporting families for an exceptional weekend of swimming.</p>'
+            },
+            'kiambu-invitational': {
+                title: 'Kiambu Aquatics Invitational Championship',
+                badge: 'Results',
+                date: 'May 23–24, 2026',
+                location: 'Kiambu',
+                image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=900&h=450&fit=crop&crop=center',
+                content: '<p>Visa Dolphins athletes competed across all age groups at the Kiambu Aquatics Invitational Championship held May 23–24, 2026.</p><p>This regional competition provided an excellent platform for our developing swimmers to gain race experience in a competitive but supportive environment. Athletes from our Novice, Intermediate, and Elite programmes all took part.</p><p>Notable performances included multiple podium finishes in the 10 & under age group, and several new club records set by our Intermediate squad members.</p><p>The Kiambu Invitational is organised by the Kiambu County Aquatics Association (KCAA), our governing body, and serves as an important stepping stone toward the National Championships.</p><p>Thank you to all families who travelled to support our swimmers and to the KCAA for excellent event organisation.</p>'
+            },
+            'new-season-registration': {
+                title: 'New Season Registration Open',
+                badge: 'Enrolment',
+                date: 'June 2026',
+                location: 'All locations',
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&h=450&fit=crop&crop=center',
+                content: '<p>Registration is now open for the next training season at Visa Dolphins Swim Club. All programmes are accepting new swimmers.</p><p><strong>Available programmes:</strong></p><ul><li><strong>Novice</strong> — For beginners learning water confidence and basic technique</li><li><strong>Intermediate</strong> — Building stroke technique and endurance</li><li><strong>Elite</strong> — Competition-focused training for county and national qualifiers</li><li><strong>Professional</strong> — National team athletes and high-performance squad</li></ul><p>Training sessions run at Westlands Primary Swimming Pool (weekday evenings and Saturday mornings) and Kasarani Aquatic Stadium (early mornings for Professional squad).</p><p>To register, contact us via WhatsApp or visit the Enrol page on our website. Places are limited to maintain our maximum 15:1 student-to-coach ratio.</p>'
+            },
+            'kcaa-recognition': {
+                title: 'KCAA No-Objection Certificate Issued',
+                badge: 'Announcement',
+                date: 'February 2026',
+                location: 'Kiambu County',
+                image: 'https://images.unsplash.com/photo-1560090995-01632a28895b?w=900&h=450&fit=crop&crop=center',
+                content: '<p>Visa Dolphins Swim Club is proud to announce that we have received our official No-Objection Certificate from the Kiambu County Aquatics Association (KCAA) in February 2026.</p><p>The certificate was issued by Honorary Secretary Douglas Okatso and countersigned by Chairperson Gedeon Kioko, confirming our club\'s official registration and recognition by the county governing body.</p><p>This recognition means our athletes can officially compete in sanctioned events under the KCAA banner, our coaching standards meet county requirements, and we are aligned with the Kenya Aquatics governance structure.</p><p>We are grateful to the KCAA for their support and look forward to continuing our contribution to aquatic sports development in Kiambu County and beyond.</p>'
+            },
+            'decathlon-partnership': {
+                title: 'Decathlon Kenya Equipment Partnership',
+                badge: 'Partnership',
+                date: '2026',
+                location: 'Nairobi',
+                image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&h=450&fit=crop&crop=center',
+                content: '<p>Visa Dolphins Sports is excited to announce a new equipment and resource partnership with Decathlon Kenya.</p><p>This partnership means our athletes, club members, and school programmes will have access to professional-grade aquatic equipment at competitive prices. The partnership covers:</p><ul><li>Training equipment (fins, kickboards, pull buoys, paddles)</li><li>Competition gear (racing goggles, caps, swimsuits)</li><li>Coaching resources and pool equipment</li><li>Bulk order pricing for schools and clubs</li></ul><p>Decathlon Kenya shares our commitment to making sport accessible and our belief that quality equipment should be available to athletes at every level — from learn-to-swim beginners to national team competitors.</p><p>Visit our Sports Equipment page to browse the range or contact us for bulk order enquiries.</p>'
+            },
+            'sudais-somalia': {
+                title: 'Sudais Bashir Represents Somalia at National Level',
+                badge: 'Athlete Spotlight',
+                date: '2026',
+                location: 'International',
+                image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=900&h=450&fit=crop&crop=center',
+                content: '<p>We are incredibly proud to announce that Visa Dolphins athlete Sudais Bashir has been selected to represent Somalia at national level in swimming.</p><p>Sudais joined Visa Dolphins as a developing swimmer and through dedicated training in our Elite programme, has achieved times that qualify him for international representation. His journey from our pool deck to the international stage is exactly what our club\'s development pathway is designed to achieve.</p><p>Coach Japheth Onkoba said: "Sudais embodies everything we believe in at Visa Dolphins — hard work, dedication, and the willingness to push beyond limits. Seeing our athletes compete internationally validates our approach to swimmer development."</p><p>Sudais continues to train with Visa Dolphins and will represent Somalia in upcoming international competitions. We wish him every success and are honoured to be part of his journey.</p>'
+            }
+        };
+
+        var newsParams = new URLSearchParams(window.location.search);
+        var newsId = newsParams.get('id');
+        var article = newsId ? newsData[newsId] : null;
+
+        if (article) {
+            document.title = article.title + ' — Visa Dolphins';
+            newsDetailContainer.innerHTML = ''
+                + '<section class="news-detail-hero">'
+                + '  <div class="container">'
+                + '    <a href="/news.html" class="athlete-back-link">&larr; Back to News & Events</a>'
+                + '    <div class="news-detail-hero__image">'
+                + '      <img src="' + article.image + '" alt="' + article.title + '">'
+                + '    </div>'
+                + '  </div>'
+                + '</section>'
+                + '<section class="section">'
+                + '  <div class="container">'
+                + '    <article class="news-detail-article">'
+                + '      <div class="news-detail-meta">'
+                + '        <span class="stat-badge">' + article.badge + '</span>'
+                + '        <span class="news-detail-date">' + article.date + '</span>'
+                + '        <span class="news-detail-location">' + article.location + '</span>'
+                + '      </div>'
+                + '      <h1 class="news-detail-title">' + article.title + '</h1>'
+                + '      <div class="news-detail-body">' + article.content + '</div>'
+                + '      <div class="news-detail-share">'
+                + '        <a href="https://wa.me/?text=' + encodeURIComponent(article.title + ' — https://visadolphins.co.ke/news-detail.html?id=' + newsId) + '" target="_blank" class="btn btn-sm btn-whatsapp">I have a question</a>'
+                + '      </div>'
+                + '    </article>'
+                + '  </div>'
+                + '</section>';
+        } else {
+            newsDetailContainer.innerHTML = ''
+                + '<section class="page-hero">'
+                + '  <div class="container" style="text-align:center;">'
+                + '    <h1 class="page-hero__title">Article Not Found</h1>'
+                + '    <p class="page-hero__desc">Sorry, we couldn\'t find that article.</p>'
+                + '    <a href="/news.html" class="btn btn-primary" style="margin-top:2rem;">View All News</a>'
+                + '  </div>'
+                + '</section>';
+        }
+    }
+
+    // ===========================
+    // Gallery — Filters & Lightbox
+    // ===========================
+    var hexGrid = document.getElementById('hex-grid');
+    var lightbox = document.getElementById('gallery-lightbox');
+
+    if (hexGrid && lightbox) {
+        var filterBtns = document.querySelectorAll('.gallery-filter');
+        var hexItems = document.querySelectorAll('.hex-item');
+        var lightboxImage = lightbox.querySelector('.lightbox__image');
+        var lightboxCaption = lightbox.querySelector('.lightbox__caption');
+        var currentIndex = 0;
+        var visibleItems = [];
+
+        function updateVisibleItems() {
+            visibleItems = [];
+            hexItems.forEach(function(item) {
+                if (!item.classList.contains('hidden')) {
+                    visibleItems.push(item);
+                }
+            });
+        }
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                var filter = btn.getAttribute('data-filter');
+
+                hexItems.forEach(function(item) {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                updateVisibleItems();
+            });
+        });
+
+        updateVisibleItems();
+
+        function openLightbox(index) {
+            currentIndex = index;
+            var item = visibleItems[currentIndex];
+            var img = item.querySelector('img');
+            var caption = item.getAttribute('data-caption');
+            lightboxImage.src = img.src.replace('w=500&h=500', 'w=1200&h=1200');
+            lightboxImage.alt = img.alt;
+            lightboxCaption.textContent = caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+            openLightbox(currentIndex);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % visibleItems.length;
+            openLightbox(currentIndex);
+        }
+
+        hexItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var idx = visibleItems.indexOf(item);
+                if (idx !== -1) openLightbox(idx);
+            });
+        });
+
+        lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox__overlay').addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox__prev').addEventListener('click', prevImage);
+        lightbox.querySelector('.lightbox__next').addEventListener('click', nextImage);
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+    }
+
     } // end initPage
 
 })();
