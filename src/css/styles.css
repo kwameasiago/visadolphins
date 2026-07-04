@@ -216,6 +216,8 @@ a.btn-primary,
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin-left: auto;
+    margin-right: 2rem;
 }
 
 .nav-link {
