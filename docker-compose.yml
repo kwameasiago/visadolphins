@@ -13,6 +13,7 @@ services:
       - DB_DATABASE=${DB_DATABASE:-visadolphins}
       - DB_USERNAME=${DB_USERNAME:-visadolphins}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - JWT_SECRET=${JWT_SECRET:-visa-dolphins-jwt-secret-change-me}
     depends_on:
       db:
         condition: service_healthy
