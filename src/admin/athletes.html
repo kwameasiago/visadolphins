@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletes — Admin — Visa Dolphins</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body class="admin-page">
+    <!-- Topbar -->
+    <nav class="admin-topbar">
+        <a href="/admin/" class="admin-topbar__brand">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="13" stroke="#00bcd4" stroke-width="2"/>
+                <path d="M8 14c2-3 4-3 6 0s4 3 6 0" stroke="#00bcd4" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            Visa Dolphins Admin
+        </a>
+        <div class="admin-topbar__nav">
+            <a href="/admin/athletes.html" class="active">Athletes</a>
+            <button class="admin-topbar__logout" id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="admin-page-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <h1>Athletes</h1>
+            <div class="admin-header-actions">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search by name...">
+                </div>
+                <button class="btn btn-primary btn-sm" id="add-athlete-btn" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">+ Add Athlete</button>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="message" class="message"></div>
+
+        <!-- Athletes Grid -->
+        <div id="athletes-grid" class="admin-athletes-grid"></div>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <div class="empty-state__icon">🏊</div>
+            <h3 class="empty-state__title">No athletes found</h3>
+            <p class="empty-state__desc">Add your first athlete to get started.</p>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="athlete-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal__header">
+                <h2 class="modal__title" id="modal-title">Add Athlete</h2>
+                <button class="modal__close" id="modal-close">&times;</button>
+            </div>
+            <form id="athlete-form" class="admin-form">
+                <input type="hidden" id="form-public-id" value="">
+
+                <div class="form-field">
+                    <label for="form-name">Athlete Name *</label>
+                    <input type="text" id="form-name" placeholder="Enter athlete name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="form-bio">Bio / About</label>
+                    <textarea id="form-bio" placeholder="Short biography or description of the athlete..." rows="3"></textarea>
+                </div>
+
+                <div class="form-field" style="flex-direction:row;align-items:center;gap:0.75rem;">
+                    <input type="checkbox" id="form-star" style="width:auto;accent-color:var(--color-primary);">
+                    <label for="form-star" style="text-transform:none;font-size:0.9rem;color:var(--color-text);">⭐ Featured (Star) Athlete</label>
+                </div>
+
+                <div class="form-field">
+                    <label>Image</label>
+                    <div class="image-preview" id="image-preview">
+                        <span class="image-preview__placeholder">Click or drop image here</span>
+                    </div>
+                    <input type="file" id="form-image" accept="image/jpeg,image/png,image/webp" style="display:none;">
+                    <button type="button" class="btn btn-outline btn-sm" id="image-pick-btn" style="margin-top: 0.35rem;">Choose Image</button>
+                </div>
+
+                <div class="form-field">
+                    <label>Personal Bests</label>
+                    <div id="pb-list" class="dynamic-list"></div>
+                    <button type="button" class="dynamic-list__add" id="add-pb-btn">+ Add Personal Best</button>
+                </div>
+
+                <div class="form-field">
+                    <label>Highlights</label>
+                    <div id="highlights-list" class="dynamic-list"></div>
+                    <button type="button" class="dynamic-list__add" id="add-highlight-btn">+ Add Highlight</button>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="form-submit-btn">Save Athlete</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/js/athletes.js"></script>
+</body>
+</html>

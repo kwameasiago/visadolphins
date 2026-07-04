@@ -23,113 +23,33 @@
         </section>
 
         <!-- ===========================
-             ATHLETES GRID
+             SEARCH
+             =========================== -->
+        <section class="section" style="padding-bottom: 0;">
+            <div class="container">
+                <div style="max-width: 400px;">
+                    <input type="text" id="athlete-search" placeholder="Search athletes by name..." style="width:100%;padding:0.75rem 1rem;background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--color-text);font-size:0.95rem;">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================
+             ATHLETES GRID (dynamic)
              =========================== -->
         <section class="section">
             <div class="container">
-                <div class="athletes-grid">
-                    <a href="/club/athlete-detail.html?id=hussein" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1622629797619-c100e3e67e2e?w=400&h=500&fit=crop&crop=face" alt="Hussein" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Professional</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Hussein</h3>
-                            <p class="athlete-card__achievement">Kenyan National Team athlete</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=nadia" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop&crop=face" alt="Nadia" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Professional</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Nadia</h3>
-                            <p class="athlete-card__achievement">Kenyan National Team athlete</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=sudais" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=400&h=500&fit=crop&crop=face" alt="Sudais Bashir" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Elite</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Sudais Bashir</h3>
-                            <p class="athlete-card__achievement">Represented Somalia at national level</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=amara" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=400&h=500&fit=crop&crop=face" alt="Amara Ochieng" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Elite</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Amara Ochieng</h3>
-                            <p class="athlete-card__achievement">County champion — 100m Butterfly</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=kevin" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400&h=500&fit=crop&crop=face" alt="Kevin Mwangi" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Elite</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Kevin Mwangi</h3>
-                            <p class="athlete-card__achievement">National qualifier — 200m Freestyle</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=zara" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=500&fit=crop&crop=face" alt="Zara Kimani" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Zara Kimani</h3>
-                            <p class="athlete-card__achievement">Club record — 50m Backstroke (age group)</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=omar" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=400&h=500&fit=crop&crop=face" alt="Omar Hassan" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Omar Hassan</h3>
-                            <p class="athlete-card__achievement">Most improved swimmer 2025</p>
-                        </div>
-                    </a>
-                    <a href="/club/athlete-detail.html?id=faith" class="athlete-card">
-                        <div class="athlete-card__image">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face" alt="Faith Wanjiku" loading="lazy">
-                            <div class="athlete-card__overlay">
-                                <span class="athlete-card__programme">Elite</span>
-                            </div>
-                        </div>
-                        <div class="athlete-card__info">
-                            <h3 class="athlete-card__name">Faith Wanjiku</h3>
-                            <p class="athlete-card__achievement">County champion — 200m Individual Medley</p>
-                        </div>
-                    </a>
+                <div id="athletes-grid" class="athletes-grid"></div>
+                <div id="athletes-empty" style="display:none;text-align:center;padding:4rem 2rem;color:var(--color-text-muted);">
+                    <p style="font-size:1.1rem;font-weight:600;color:var(--color-text-heading);margin-bottom:0.5rem;">No athletes to display</p>
+                    <p style="font-size:0.85rem;">Check back soon for updates.</p>
                 </div>
+                <div id="athletes-pagination" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:2rem;"></div>
             </div>
         </section>
     </main>
 
     <div id="site-footer"></div>
     <script src="/js/main.js"></script>
+    <script src="/js/athletes.js"></script>
 </body>
 </html>

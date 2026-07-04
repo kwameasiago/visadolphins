@@ -22,6 +22,39 @@
         el.textContent = '';
     }
 
+    // ---- JWT helpers ----
+    function parseJwt(token) {
+        try {
+            var payload = token.split('.')[1];
+            return JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function isTokenValid(token) {
+        if (!token) return false;
+        var data = parseJwt(token);
+        if (!data || !data.exp) return false;
+        return data.exp * 1000 > Date.now();
+    }
+
+    function showLoggedIn(username) {
+        loginForm.style.display = 'none';
+        forgotLink.parentElement.style.display = 'none';
+        forgotSection.classList.remove('show');
+        showMessage(messageEl, 'Logged in as ' + username, 'success');
+    }
+
+    // ---- Check existing session on load ----
+    (function checkSession() {
+        var token = localStorage.getItem('admin_token');
+        if (isTokenValid(token)) {
+            var data = parseJwt(token);
+            showLoggedIn(data.username || 'admin');
+        }
+    })();
+
     // ---- Login ----
     loginForm.addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -54,9 +87,8 @@
             }
 
             localStorage.setItem('admin_token', data.token);
-            showMessage(messageEl, 'Login successful!', 'success');
-            loginForm.style.display = 'none';
-            document.querySelector('.admin-links').style.display = 'none';
+            var parsed = parseJwt(data.token);
+            showLoggedIn(parsed ? parsed.username : 'admin');
         } catch (err) {
             showMessage(messageEl, 'Network error. Please try again.', 'error');
         } finally {
