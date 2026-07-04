@@ -47,11 +47,11 @@
     }
 
     // ---- Check existing session on load ----
+    // If already logged in, redirect to dashboard
     (function checkSession() {
         var token = localStorage.getItem('admin_token');
         if (isTokenValid(token)) {
-            var data = parseJwt(token);
-            showLoggedIn(data.username || 'admin');
+            window.location.href = '/admin/';
         }
     })();
 
@@ -87,8 +87,7 @@
             }
 
             localStorage.setItem('admin_token', data.token);
-            var parsed = parseJwt(data.token);
-            showLoggedIn(parsed ? parsed.username : 'admin');
+            window.location.href = '/admin/';
         } catch (err) {
             showMessage(messageEl, 'Network error. Please try again.', 'error');
         } finally {

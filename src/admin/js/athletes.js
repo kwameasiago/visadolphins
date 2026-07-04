@@ -14,7 +14,7 @@
     function checkAuth() {
         const token = getToken();
         if (!token) {
-            window.location.href = '/admin/';
+            window.location.href = '/admin/login.html';
             return false;
         }
         // Basic expiry check
@@ -22,12 +22,12 @@
             var payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
             if (payload.exp * 1000 < Date.now()) {
                 localStorage.removeItem(TOKEN_KEY);
-                window.location.href = '/admin/';
+                window.location.href = '/admin/login.html';
                 return false;
             }
         } catch (e) {
             localStorage.removeItem(TOKEN_KEY);
-            window.location.href = '/admin/';
+            window.location.href = '/admin/login.html';
             return false;
         }
         return true;
@@ -80,7 +80,7 @@
             const res = await fetch(API_BASE + '/athletes.php?' + params.toString(), {
                 headers: authHeaders(),
             });
-            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/'; return; }
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/login.html'; return; }
             const data = await res.json();
             renderGrid(data.data);
             renderPagination(data);
@@ -164,9 +164,62 @@
         }, 300);
     });
 
-    // ---- Modal ----
+    // ---- Modal (stepped) ----
+    var currentStep = 1;
+    var totalSteps = 3;
+    var modalPrev = document.getElementById('modal-prev');
+    var modalNext = document.getElementById('modal-next');
+    var sections = document.querySelectorAll('.modal-section');
+    var stepIndicators = document.querySelectorAll('.modal-step');
+
+    function goToStep(step) {
+        currentStep = step;
+        sections.forEach(function (s) { s.classList.remove('active'); });
+        stepIndicators.forEach(function (s) {
+            s.classList.remove('active', 'done');
+            var sNum = parseInt(s.dataset.step);
+            if (sNum < currentStep) s.classList.add('done');
+            if (sNum === currentStep) s.classList.add('active');
+        });
+        document.querySelector('.modal-section[data-section="' + currentStep + '"]').classList.add('active');
+
+        // Show/hide nav buttons
+        modalPrev.style.display = currentStep > 1 ? '' : 'none';
+        modalNext.style.display = currentStep < totalSteps ? '' : 'none';
+        formSubmitBtn.style.display = currentStep === totalSteps ? '' : 'none';
+    }
+
+    modalNext.addEventListener('click', function () {
+        // Validate step 1
+        if (currentStep === 1) {
+            var name = formName.value.trim();
+            if (!name) {
+                formName.focus();
+                showMessage('Athlete name is required.', 'error');
+                return;
+            }
+        }
+        if (currentStep < totalSteps) goToStep(currentStep + 1);
+    });
+
+    modalPrev.addEventListener('click', function () {
+        if (currentStep > 1) goToStep(currentStep - 1);
+    });
+
+    // Allow clicking step indicators
+    stepIndicators.forEach(function (si) {
+        si.addEventListener('click', function () {
+            var target = parseInt(si.dataset.step);
+            // Only allow going back or to current
+            if (target < currentStep) goToStep(target);
+            // Allow forward only if name is filled
+            if (target > currentStep && formName.value.trim()) goToStep(target);
+        });
+    });
+
     function openModal(title) {
         modalTitle.textContent = title;
+        goToStep(1);
         modal.classList.add('show');
     }
 
@@ -191,6 +244,7 @@
         imagePreview.innerHTML = '<span class="image-preview__placeholder">Click or drop image here</span>';
         pbList.innerHTML = '';
         highlightsList.innerHTML = '';
+        goToStep(1);
     }
 
     // ---- Image picker ----
@@ -237,7 +291,7 @@
     async function openEdit(publicId) {
         try {
             const res = await fetch(API_BASE + '/athletes.php?id=' + publicId, { headers: authHeaders() });
-            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/'; return; }
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/login.html'; return; }
             if (!res.ok) { showMessage('Failed to load athlete.', 'error'); return; }
             const athlete = await res.json();
 
@@ -313,11 +367,19 @@
                 body: formData,
             });
 
-            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/'; return; }
-            const data = await res.json();
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/login.html'; return; }
+
+            var data;
+            var responseText = await res.text();
+            try {
+                data = JSON.parse(responseText);
+            } catch (parseErr) {
+                showMessage('Server error: ' + (res.status === 413 ? 'File too large.' : 'Invalid response from server.'), 'error');
+                return;
+            }
 
             if (!res.ok) {
-                showMessage(data.error || 'Failed to save athlete.', 'error');
+                showMessage(data.error || 'Failed to save athlete. (HTTP ' + res.status + ')', 'error');
                 return;
             }
 
@@ -325,7 +387,7 @@
             closeModal();
             loadAthletes();
         } catch (err) {
-            showMessage('Network error.', 'error');
+            showMessage('Network error — please try again.', 'error');
         } finally {
             formSubmitBtn.disabled = false;
             formSubmitBtn.textContent = 'Save Athlete';
@@ -341,7 +403,7 @@
                 method: 'DELETE',
                 headers: authHeaders(),
             });
-            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/'; return; }
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/admin/login.html'; return; }
             const data = await res.json();
 
             if (!res.ok) { showMessage(data.error || 'Delete failed.', 'error'); return; }
@@ -355,8 +417,37 @@
     // ---- Logout ----
     logoutBtn.addEventListener('click', function () {
         localStorage.removeItem(TOKEN_KEY);
-        window.location.href = '/admin/';
+        window.location.href = '/admin/login.html';
     });
+
+    // ---- Mobile sidebar toggle ----
+    var sidebar = document.getElementById('admin-sidebar');
+    var overlay = document.getElementById('admin-overlay');
+    var hamburger = document.getElementById('admin-hamburger');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function () {
+            sidebar.classList.add('open');
+            overlay.classList.add('open');
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', function () {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+    }
+
+    // Close sidebar on nav link click (mobile)
+    if (sidebar) {
+        sidebar.querySelectorAll('.admin-sidebar__nav a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('open');
+            });
+        });
+    }
 
     // ---- Init ----
     loadAthletes();

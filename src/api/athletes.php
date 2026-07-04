@@ -10,6 +10,17 @@
  * DELETE /api/athletes.php?id=<uuid>    — Delete athlete
  */
 
+// Check if POST data was discarded due to size limit
+if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
+    empty($_POST) && empty($_FILES) &&
+    isset($_SERVER['CONTENT_LENGTH']) && (int)$_SERVER['CONTENT_LENGTH'] > 0) {
+    header('Content-Type: application/json');
+    $maxSize = ini_get('post_max_size');
+    http_response_code(413);
+    echo json_encode(['error' => "Upload too large. Maximum allowed size is {$maxSize}."]);
+    exit;
+}
+
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';

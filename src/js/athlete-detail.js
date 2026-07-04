@@ -70,7 +70,7 @@
                 '<div class="container">' +
                     '<div class="athlete-detail__layout">' +
                         '<div class="athlete-detail__image">' +
-                            '<img src="' + imgSrc + '" alt="' + escapeHtml(a.name) + '" style="width:100%;border-radius:12px;max-height:400px;object-fit:cover;">' +
+                            '<img src="' + imgSrc + '" alt="' + escapeHtml(a.name) + '" style="width:100%;border-radius:12px;max-height:500px;object-fit:contain;background:var(--color-bg-card);">' +
                         '</div>' +
                         '<div class="athlete-detail__content">' +
                             bioHtml + pbHtml + hlHtml +
