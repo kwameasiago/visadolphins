@@ -225,53 +225,9 @@
         <section id="latest-news" class="section">
             <div class="container">
                 <h2 class="section-title">Latest News & Events</h2>
-                <div class="news-grid">
-                    <!-- Card 1: Image -->
-                    <div class="news-card">
-                        <div class="news-card__media">
-                            <img src="https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=600&h=340&fit=crop&crop=center" alt="Swimmers at competition start blocks" loading="lazy">
-                        </div>
-                        <div class="news-card__body">
-                            <span class="stat-badge">Upcoming</span>
-                            <h3 class="news-card__title">Kenyan National Championships</h3>
-                            <p class="news-card__desc">May 29–31, 2026 — Competition meet for qualified swimmers.</p>
-                            <a href="/news.html" class="news-card__link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: YouTube embed -->
-                    <div class="news-card">
-                        <div class="news-card__media news-card__media--video">
-                            <!-- TODO: Replace with actual club YouTube video ID -->
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Kiambu Aquatics Invitational Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="news-card__body">
-                            <span class="stat-badge">Results</span>
-                            <h3 class="news-card__title">Kiambu Aquatics Invitational</h3>
-                            <p class="news-card__desc">May 23–24, 2026 — Club members competed across all age groups.</p>
-                            <a href="/news.html" class="news-card__link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Local video -->
-                    <div class="news-card">
-                        <div class="news-card__media news-card__media--video">
-                            <!-- TODO: Replace src with actual local video file path -->
-                            <video controls preload="metadata" poster="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=340&fit=crop&crop=center">
-                                <source src="/videos/registration-promo.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="news-card__body">
-                            <span class="stat-badge">Enrolment</span>
-                            <h3 class="news-card__title">New Season Registration Open</h3>
-                            <p class="news-card__desc">Register now for the next training season. All programmes available.</p>
-                            <a href="/club/enrol.html" class="news-card__link">Enrol now &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+                <div id="latest-news-grid" class="news-grid"></div>
                 <div class="section-cta">
-                    <a href="/news.html" class="btn btn-outline">View All News</a>
+                    <a href="/news-events.html" class="btn btn-outline">View All News</a>
                 </div>
             </div>
         </section>
@@ -493,5 +449,6 @@
     <div id="site-footer"></div>
     <script src="/js/main.js"></script>
     <script src="/js/starred-athletes.js"></script>
+    <script src="/js/latest-news.js"></script>
 </body>
 </html>
