@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Image — Admin — Visa Dolphins</title>
+    <title>Messages — Admin — Visa Dolphins</title>
     <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
 <body class="admin-page">
@@ -32,11 +32,11 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                 Equipment
             </a>
-            <a href="/admin/gallery.html" class="active">
+            <a href="/admin/gallery.html">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 Gallery
             </a>
-            <a href="/admin/contact-submissions.html">
+            <a href="/admin/contact-submissions.html" class="active">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 Messages
             </a>
@@ -70,51 +70,43 @@
         </header>
 
         <div class="admin-page-container">
-            <div class="admin-header" style="margin-bottom:1.5rem;">
-                <div>
-                    <a href="/admin/gallery.html" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.8rem;color:var(--color-text-muted);margin-bottom:0.5rem;">&larr; Back to Gallery</a>
-                    <h1 id="page-title">Upload Image</h1>
+            <div class="admin-header">
+                <h1>Messages <span id="unread-badge" class="admin-badge" style="display:none;"></span></h1>
+                <div class="admin-header-actions">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search by name, email, subject...">
+                    </div>
                 </div>
             </div>
 
             <div id="message" class="message"></div>
 
-            <form id="gallery-form" class="admin-form ne-edit-form" enctype="multipart/form-data">
-                <input type="hidden" id="form-public-id" value="">
+            <div class="admin-table-wrapper">
+                <table class="admin-table" id="items-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Subject</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-tbody"></tbody>
+                </table>
+            </div>
 
-                <!-- Image section -->
-                <div class="ne-edit-section">
-                    <h2 class="ne-edit-section__title">Image *</h2>
-                    <div id="image-dropzone" class="ne-media-add-row__dropzone">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Click to choose image or drag & drop</span>
-                        <input type="file" id="form-image" accept="image/jpeg,image/png,image/webp" style="display:none;">
-                    </div>
-                    <div id="image-preview" style="margin-top:0.75rem;"></div>
-                </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <div class="empty-state__icon">📬</div>
+                <h3 class="empty-state__title">No messages yet</h3>
+                <p class="empty-state__desc">When visitors submit the contact form, messages will appear here.</p>
+            </div>
 
-                <!-- Details section -->
-                <div class="ne-edit-section">
-                    <h2 class="ne-edit-section__title">Details</h2>
-                    <div class="form-field">
-                        <label for="form-tag">Tag</label>
-                        <input type="text" id="form-tag" placeholder="e.g. training, competition, school">
-                    </div>
-                    <div class="form-field">
-                        <label for="form-caption">Caption</label>
-                        <textarea id="form-caption" rows="3" placeholder="Describe this photo..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Submit -->
-                <div class="ne-edit-actions">
-                    <a href="/admin/gallery.html" class="btn btn-outline">Cancel</a>
-                    <button type="submit" class="btn btn-primary" id="form-submit-btn">Upload</button>
-                </div>
-            </form>
+            <div id="pagination" class="pagination"></div>
         </div>
     </div>
 
-    <script src="/admin/js/gallery-upload.js"></script>
+    <script src="/admin/js/contact-list.js"></script>
 </body>
 </html>

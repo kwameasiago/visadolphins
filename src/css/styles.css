@@ -4186,3 +4186,26 @@ a.btn-primary,
     color: #000;
     font-weight: 700;
 }
+
+/* ===========================
+   Contact Form Messages
+   =========================== */
+.contact-form-message {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.contact-form-message--success {
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    color: #00c853;
+}
+
+.contact-form-message--error {
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}

@@ -166,19 +166,56 @@
     window.addEventListener('scroll', updateActiveNav, { passive: true });
 
     // ===========================
-    // Contact Form (prevent default)
+    // Contact Form — submit to API
     // ===========================
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            const inputs = contactForm.querySelectorAll('input');
-            const name = inputs[0].value.trim();
-            const email = inputs[1].value.trim();
+            var submitBtn = contactForm.querySelector('button[type="submit"]');
+            var originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            if (name && email) {
-                alert('Thank you, ' + name + '! We will be in touch at ' + email + '.');
-                contactForm.reset();
+            // Remove previous message
+            var oldMsg = contactForm.parentNode.querySelector('.contact-form-message');
+            if (oldMsg) oldMsg.remove();
+
+            var payload = {
+                name: (document.getElementById('cf-name').value || '').trim(),
+                phone: (document.getElementById('cf-phone').value || '').trim(),
+                email: (document.getElementById('cf-email').value || '').trim(),
+                subject: (document.getElementById('cf-subject').value || '').trim(),
+                message: (document.getElementById('cf-message').value || '').trim()
+            };
+
+            try {
+                var res = await fetch('/api/public/contact.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                var data = await res.json();
+                var msgEl = document.createElement('div');
+                msgEl.className = 'contact-form-message';
+
+                if (res.ok) {
+                    msgEl.className += ' contact-form-message--success';
+                    msgEl.textContent = data.message || 'Message sent successfully!';
+                    contactForm.reset();
+                } else {
+                    msgEl.className += ' contact-form-message--error';
+                    msgEl.textContent = data.error || 'Something went wrong. Please try again.';
+                }
+                contactForm.parentNode.insertBefore(msgEl, contactForm.nextSibling);
+            } catch (err) {
+                var errEl = document.createElement('div');
+                errEl.className = 'contact-form-message contact-form-message--error';
+                errEl.textContent = 'Network error. Please try again.';
+                contactForm.parentNode.insertBefore(errEl, contactForm.nextSibling);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             }
         });
     }
