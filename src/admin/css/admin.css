@@ -1506,3 +1506,100 @@ body.admin-page {
         flex-direction: column;
     }
 }
+
+/* Admin Gallery Grid */
+.admin-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.admin-gallery-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition);
+}
+
+.admin-gallery-card:hover {
+    border-color: var(--color-primary);
+}
+
+.admin-gallery-card__image {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+}
+
+.admin-gallery-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-gallery-tag {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--color-primary);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.admin-gallery-card__info {
+    padding: 0.75rem;
+}
+
+.admin-gallery-card__caption {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.admin-gallery-card__actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.75rem 0.75rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pagination__btn {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all var(--transition);
+}
+
+.pagination__btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.pagination__btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000;
+    font-weight: 700;
+}
