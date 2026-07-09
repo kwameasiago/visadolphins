@@ -13,8 +13,7 @@
 
     // ---- Helpers ----
     function showMessage(el, text, type) {
-        el.textContent = text;
-        el.className = 'message show message--' + type;
+        showToast(text, type);
     }
 
     function hideMessage(el) {

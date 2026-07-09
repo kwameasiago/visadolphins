@@ -39,9 +39,7 @@
     var editId = params.get('id');
 
     function showMessage(text, type) {
-        messageEl.textContent = text;
-        messageEl.className = 'message show message--' + type;
-        setTimeout(function () { messageEl.className = 'message'; }, 4000);
+        showToast(text, type);
     }
 
     // ---- Image dropzone ----

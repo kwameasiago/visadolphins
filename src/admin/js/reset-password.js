@@ -8,8 +8,7 @@
     const token = params.get('token');
 
     function showMessage(text, type) {
-        messageEl.textContent = text;
-        messageEl.className = 'message show message--' + type;
+        showToast(text, type);
     }
 
     // Validate token presence
