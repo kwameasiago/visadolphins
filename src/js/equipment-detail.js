@@ -10,6 +10,12 @@
         return;
     }
 
+    // Skeleton
+    container.innerHTML = '<section class="section"><div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1000px;margin:0 auto;">' +
+        '<div class="skeleton-card__image" style="aspect-ratio:1;border-radius:var(--radius-md);"></div>' +
+        '<div><div class="skeleton-line skeleton-line--medium" style="height:1.2rem;margin-bottom:1rem;"></div><div class="skeleton-line skeleton-line--short"></div><div class="skeleton-line skeleton-line--long"></div><div class="skeleton-line skeleton-line--long"></div><div class="skeleton-line skeleton-line--medium"></div></div>' +
+        '</div></section>';
+
     async function loadItem() {
         try {
             var res = await fetch('/api/public/equipment.php?id=' + equipId);

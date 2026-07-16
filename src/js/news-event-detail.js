@@ -8,6 +8,17 @@
         return;
     }
 
+    // Skeleton
+    main.innerHTML = '<section class="section"><div class="container" style="max-width:800px;">' +
+        '<div class="skeleton-card__image" style="aspect-ratio:16/9;border-radius:var(--radius-md);margin-bottom:1.5rem;"></div>' +
+        '<div class="skeleton-line skeleton-line--short" style="margin-bottom:1rem;"></div>' +
+        '<div class="skeleton-line skeleton-line--long"></div>' +
+        '<div class="skeleton-line skeleton-line--long"></div>' +
+        '<div class="skeleton-line skeleton-line--medium"></div>' +
+        '<div class="skeleton-line skeleton-line--long"></div>' +
+        '<div class="skeleton-line skeleton-line--short"></div>' +
+        '</div></section>';
+
     async function loadPost() {
         try {
             var res = await fetch('/api/public/news-events.php?id=' + postId);

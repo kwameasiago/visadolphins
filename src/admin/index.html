@@ -79,30 +79,78 @@
                 <h1>Dashboard</h1>
             </div>
 
-            <!-- To-do section -->
+            <!-- Stat cards -->
+            <div class="dash-stats-grid" id="dashboard-stats">
+                <a href="/admin/contact-submissions.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--messages">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-unread-messages">—</span>
+                        <span class="dash-stat-card__label">Unread Messages</span>
+                    </div>
+                    <span class="dash-stat-card__total" id="stat-total-messages"></span>
+                </a>
+                <a href="/admin/applications.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--applications">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-new-applications">—</span>
+                        <span class="dash-stat-card__label">New Applications</span>
+                    </div>
+                    <span class="dash-stat-card__total" id="stat-total-applications"></span>
+                </a>
+                <a href="/admin/athletes.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--athletes">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-athletes">—</span>
+                        <span class="dash-stat-card__label">Athletes</span>
+                    </div>
+                </a>
+                <a href="/admin/news-events.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--news">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-news-events">—</span>
+                        <span class="dash-stat-card__label">News & Events</span>
+                    </div>
+                </a>
+                <a href="/admin/equipment.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--equipment">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-equipment">—</span>
+                        <span class="dash-stat-card__label">Equipment</span>
+                    </div>
+                </a>
+                <a href="/admin/gallery.html" class="dash-stat-card">
+                    <div class="dash-stat-card__icon dash-stat-card__icon--gallery">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <div class="dash-stat-card__body">
+                        <span class="dash-stat-card__value" id="stat-gallery">—</span>
+                        <span class="dash-stat-card__label">Gallery Images</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Applications trend chart -->
             <div class="dashboard-section">
-                <h2 class="dashboard-section__title">To Do</h2>
-                <div class="todo-list" id="todo-list">
-                    <div class="todo-item">
-                        <input type="checkbox" class="todo-checkbox" id="todo-1">
-                        <label for="todo-1" class="todo-label">Add athlete profiles with images and personal bests</label>
+                <div class="dash-chart-header">
+                    <h2 class="dashboard-section__title">Applications Trend</h2>
+                    <div class="dash-chart-filters">
+                        <label>From <input type="date" id="chart-from"></label>
+                        <label>To <input type="date" id="chart-to"></label>
+                        <button class="btn btn-sm btn-primary" id="chart-filter-btn">Apply</button>
                     </div>
-                    <div class="todo-item">
-                        <input type="checkbox" class="todo-checkbox" id="todo-2">
-                        <label for="todo-2" class="todo-label">Mark star athletes for homepage featured section</label>
-                    </div>
-                    <div class="todo-item">
-                        <input type="checkbox" class="todo-checkbox" id="todo-3">
-                        <label for="todo-3" class="todo-label">Upload high-quality athlete photos</label>
-                    </div>
-                    <div class="todo-item">
-                        <input type="checkbox" class="todo-checkbox" id="todo-4">
-                        <label for="todo-4" class="todo-label">Add sports equipment inventory</label>
-                    </div>
-                    <div class="todo-item">
-                        <input type="checkbox" class="todo-checkbox" id="todo-5">
-                        <label for="todo-5" class="todo-label">Create news &amp; event announcements</label>
-                    </div>
+                </div>
+                <div class="dash-chart-wrapper">
+                    <canvas id="applications-chart"></canvas>
                 </div>
             </div>
 
@@ -124,6 +172,7 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="/admin/js/toast.js"></script>
     <script src="/admin/js/dashboard.js"></script>
 </body>

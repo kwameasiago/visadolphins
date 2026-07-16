@@ -31,6 +31,8 @@
         showToast(text, type);
     }
 
+    var skeletonEl = document.getElementById('detail-skeleton');
+
     async function loadDetail() {
         try {
             var res = await fetch(API_BASE + '/applications.php?id=' + itemId, { headers: authHeaders() });
@@ -58,8 +60,10 @@
                 document.getElementById('detail-students').textContent = item.num_students || '—';
             }
 
+            skeletonEl.style.display = 'none';
             detailContent.style.display = '';
         } catch (err) {
+            skeletonEl.style.display = 'none';
             showMessage('Network error.', 'error');
         }
     }

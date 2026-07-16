@@ -33,7 +33,18 @@
         showToast(text, type);
     }
 
+    function showSkeleton() {
+        var html = '';
+        for (var i = 0; i < 5; i++) {
+            html += '<tr><td><div class="admin-skeleton-circle"></div></td><td><div class="admin-skeleton-line admin-skeleton-line--lg"></div></td><td><div class="admin-skeleton-line admin-skeleton-line--md"></div></td><td><div class="admin-skeleton-line admin-skeleton-line--md"></div></td><td><div class="admin-skeleton-line admin-skeleton-line--sm"></div></td><td><div class="admin-skeleton-line admin-skeleton-line--sm"></div></td></tr>';
+        }
+        tbody.innerHTML = html;
+        document.querySelector('.admin-table-wrapper').style.display = '';
+        emptyState.style.display = 'none';
+    }
+
     async function loadItems() {
+        showSkeleton();
         var params = new URLSearchParams({ page: currentPage, per_page: 20 });
         if (searchTerm) params.set('search', searchTerm);
 

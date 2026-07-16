@@ -14,8 +14,18 @@
     var currentPage = 1;
     var currentTag = '';
 
+    // ---- Skeleton ----
+    function showSkeleton() {
+        var skeletons = '';
+        for (var i = 0; i < 8; i++) {
+            skeletons += '<div class="hex-item"><div class="skeleton-hex"></div></div>';
+        }
+        hexGrid.innerHTML = skeletons;
+    }
+
     // ---- Load data ----
     async function loadGallery() {
+        showSkeleton();
         var params = new URLSearchParams({ page: currentPage, per_page: 50 });
         if (currentTag) params.set('tag', currentTag);
 

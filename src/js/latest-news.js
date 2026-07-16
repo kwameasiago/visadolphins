@@ -2,6 +2,13 @@
     var grid = document.getElementById('latest-news-grid');
     if (!grid) return;
 
+    // Skeleton
+    var skelHtml = '';
+    for (var i = 0; i < 3; i++) {
+        skelHtml += '<div class="skeleton-card"><div class="skeleton-card__image"></div><div class="skeleton-card__body"><div class="skeleton-line skeleton-line--long"></div><div class="skeleton-line skeleton-line--medium"></div><div class="skeleton-line skeleton-line--short"></div></div></div>';
+    }
+    grid.innerHTML = skelHtml;
+
     fetch('/api/public/starred-news.php')
         .then(function (res) { return res.json(); })
         .then(function (data) {

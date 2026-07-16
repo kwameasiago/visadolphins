@@ -1764,3 +1764,221 @@ body.admin-page {
     background: rgba(245, 166, 35, 0.15);
     color: #f5a623;
 }
+
+/* ===========================
+   Admin Skeleton Loaders
+   =========================== */
+@keyframes admin-skeleton-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.admin-skeleton-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-skeleton-line {
+    height: 0.7rem;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: admin-skeleton-shimmer 1.5s infinite ease-in-out;
+}
+
+.admin-skeleton-line--xs { width: 30px; }
+.admin-skeleton-line--sm { width: 60px; }
+.admin-skeleton-line--md { width: 120px; }
+.admin-skeleton-line--lg { width: 180px; }
+.admin-skeleton-line--xl { width: 240px; }
+
+.admin-skeleton-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: admin-skeleton-shimmer 1.5s infinite ease-in-out;
+}
+
+.admin-skeleton-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.admin-skeleton-card__image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: admin-skeleton-shimmer 1.5s infinite ease-in-out;
+}
+
+.admin-skeleton-card__body {
+    padding: 0.75rem;
+}
+
+.admin-skeleton-detail {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.admin-skeleton-detail .admin-skeleton-line {
+    margin-bottom: 0.75rem;
+}
+
+/* ===========================
+   Dashboard Stat Cards
+   =========================== */
+.dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dash-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dash-stat-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 16px rgba(0, 188, 212, 0.1);
+}
+
+.dash-stat-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dash-stat-card__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.dash-stat-card__icon--messages {
+    background: rgba(0, 188, 212, 0.12);
+    color: #00bcd4;
+}
+
+.dash-stat-card__icon--applications {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4caf50;
+}
+
+.dash-stat-card__icon--athletes {
+    background: rgba(156, 39, 176, 0.12);
+    color: #ab47bc;
+}
+
+.dash-stat-card__icon--news {
+    background: rgba(255, 152, 0, 0.12);
+    color: #ff9800;
+}
+
+.dash-stat-card__icon--equipment {
+    background: rgba(233, 30, 99, 0.12);
+    color: #ec407a;
+}
+
+.dash-stat-card__icon--gallery {
+    background: rgba(63, 81, 181, 0.12);
+    color: #5c6bc0;
+}
+
+.dash-stat-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.dash-stat-card__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text);
+}
+
+.dash-stat-card__label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.dash-stat-card__total {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+}
+
+/* Dashboard Chart */
+.dash-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.dash-chart-header .dashboard-section__title {
+    margin-bottom: 0;
+}
+
+.dash-chart-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.dash-chart-filters label {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.dash-chart-filters input[type="date"] {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    padding: 0.3rem 0.5rem;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color-scheme: dark;
+}
+
+.dash-chart-wrapper {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    position: relative;
+    height: 320px;
+}

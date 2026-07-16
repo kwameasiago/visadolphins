@@ -31,6 +31,8 @@
         showToast(text, type);
     }
 
+    var skeletonEl = document.getElementById('detail-skeleton');
+
     async function loadDetail() {
         try {
             var res = await fetch(API_BASE + '/contact-submissions.php?id=' + itemId, { headers: authHeaders() });
@@ -47,8 +49,10 @@
             document.getElementById('detail-date').textContent = formatDate(item.created_at);
             document.getElementById('detail-message').textContent = item.message;
 
+            skeletonEl.style.display = 'none';
             detailContent.style.display = '';
         } catch (err) {
+            skeletonEl.style.display = 'none';
             showMessage('Network error.', 'error');
         }
     }

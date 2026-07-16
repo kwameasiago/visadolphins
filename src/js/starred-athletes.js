@@ -2,6 +2,13 @@
     var grid = document.getElementById('starred-athletes-grid');
     if (!grid) return;
 
+    // Skeleton
+    var skelHtml = '';
+    for (var i = 0; i < 4; i++) {
+        skelHtml += '<div class="skeleton-athlete"><div class="skeleton-athlete__image"></div><div class="skeleton-line skeleton-line--medium" style="width:60%;height:0.9rem;"></div><div class="skeleton-line skeleton-line--short" style="width:40%;"></div></div>';
+    }
+    grid.innerHTML = skelHtml;
+
     fetch('/api/public/starred-athletes.php')
         .then(function (res) { return res.json(); })
         .then(function (data) {

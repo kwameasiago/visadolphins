@@ -8,6 +8,8 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./php.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./.env:/var/www/.env
+      - ./database:/var/www/database
     environment:
       - DB_HOST=db
       - DB_PORT=3306
@@ -15,6 +17,10 @@ services:
       - DB_USERNAME=${DB_USERNAME:-visadolphins}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
       - JWT_SECRET=${JWT_SECRET:-visa-dolphins-jwt-secret-change-me}
+      - MIGRATION_KEY=${MIGRATION_KEY:-}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@visadolphins.co.ke}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
     depends_on:
       db:
         condition: service_healthy

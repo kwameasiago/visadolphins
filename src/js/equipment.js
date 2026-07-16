@@ -10,7 +10,16 @@
     var searchTerm = '';
     var searchTimeout;
 
+    function showSkeleton() {
+        var html = '';
+        for (var i = 0; i < 6; i++) {
+            html += '<div class="skeleton-card"><div class="skeleton-card__image"></div><div class="skeleton-card__body"><div class="skeleton-line skeleton-line--long"></div><div class="skeleton-line skeleton-line--medium"></div><div class="skeleton-line skeleton-line--short"></div></div></div>';
+        }
+        grid.innerHTML = html;
+    }
+
     async function loadEquipment() {
+        showSkeleton();
         var params = new URLSearchParams({ page: currentPage, per_page: 12 });
         if (searchTerm) params.set('search', searchTerm);
 

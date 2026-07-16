@@ -32,7 +32,17 @@
         showToast(text, type);
     }
 
+    function showSkeleton() {
+        var html = '';
+        for (var i = 0; i < 6; i++) {
+            html += '<div class="admin-skeleton-card"><div class="admin-skeleton-card__image"></div><div class="admin-skeleton-card__body"><div class="admin-skeleton-line admin-skeleton-line--lg"></div><div class="admin-skeleton-line admin-skeleton-line--sm" style="margin-top:0.4rem;"></div></div></div>';
+        }
+        grid.innerHTML = html;
+        emptyState.style.display = 'none';
+    }
+
     async function loadItems() {
+        showSkeleton();
         var params = new URLSearchParams({ page: currentPage, per_page: 12 });
         if (searchTerm) params.set('search', searchTerm);
 
