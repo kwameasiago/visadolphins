@@ -36,7 +36,9 @@
         showToast(text, type);
     }
 
-    // ---- Image dropzone ----
+    // ---- Image dropzone (supports multiple) ----
+    var selectedFiles = [];
+
     imageDropzone.addEventListener('click', function () { formImage.click(); });
     imageDropzone.addEventListener('dragover', function (e) { e.preventDefault(); imageDropzone.classList.add('dragover'); });
     imageDropzone.addEventListener('dragleave', function () { imageDropzone.classList.remove('dragover'); });
@@ -44,27 +46,54 @@
         e.preventDefault();
         imageDropzone.classList.remove('dragover');
         if (e.dataTransfer.files.length) {
-            formImage.files = e.dataTransfer.files;
-            formImage.dispatchEvent(new Event('change'));
+            addFiles(e.dataTransfer.files);
         }
     });
     formImage.addEventListener('change', function () {
-        if (!formImage.files[0]) return;
-        var file = formImage.files[0];
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            imageDropzone.style.display = 'none';
-            imagePreview.innerHTML = '<img src="' + e.target.result + '" alt="" style="max-height:250px;border-radius:var(--radius-sm);">' +
-                '<p style="font-size:0.75rem;color:var(--color-text-muted);margin-top:0.35rem;">' + escapeHtml(file.name) + '</p>' +
-                '<button type="button" class="btn btn-sm btn-outline" style="margin-top:0.5rem;" id="remove-image-btn">Remove</button>';
-            imagePreview.querySelector('#remove-image-btn').addEventListener('click', function () {
-                formImage.value = '';
-                imagePreview.innerHTML = '';
-                imageDropzone.style.display = '';
-            });
-        };
-        reader.readAsDataURL(file);
+        if (!formImage.files.length) return;
+        addFiles(formImage.files);
+        formImage.value = '';
     });
+
+    function addFiles(fileList) {
+        for (var i = 0; i < fileList.length; i++) {
+            selectedFiles.push(fileList[i]);
+        }
+        renderPreviews();
+    }
+
+    function renderPreviews() {
+        imagePreview.innerHTML = '';
+        if (selectedFiles.length === 0) {
+            imageDropzone.style.display = '';
+            return;
+        }
+        imageDropzone.style.display = 'none';
+
+        selectedFiles.forEach(function (file, idx) {
+            var card = document.createElement('div');
+            card.style.cssText = 'position:relative;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.5rem;max-width:150px;';
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                card.innerHTML = '<img src="' + e.target.result + '" alt="" style="width:100%;height:100px;object-fit:cover;border-radius:var(--radius-sm);">' +
+                    '<p style="font-size:0.65rem;color:var(--color-text-muted);margin-top:0.25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + escapeHtml(file.name) + '</p>' +
+                    '<button type="button" class="btn btn-sm btn-danger" style="margin-top:0.25rem;width:100%;font-size:0.65rem;" data-idx="' + idx + '">Remove</button>';
+                card.querySelector('button').addEventListener('click', function () {
+                    selectedFiles.splice(idx, 1);
+                    renderPreviews();
+                });
+            };
+            reader.readAsDataURL(file);
+            imagePreview.appendChild(card);
+        });
+
+        // Add "Add More" button
+        var addMoreBtn = document.createElement('div');
+        addMoreBtn.style.cssText = 'display:flex;align-items:center;justify-content:center;border:2px dashed var(--color-border);border-radius:var(--radius-sm);width:150px;min-height:100px;cursor:pointer;';
+        addMoreBtn.innerHTML = '<span style="font-size:2rem;color:var(--color-text-muted);">+</span>';
+        addMoreBtn.addEventListener('click', function () { formImage.click(); });
+        imagePreview.appendChild(addMoreBtn);
+    }
 
     // ---- Load existing ----
     if (editId) {
@@ -101,44 +130,72 @@
 
         var publicId = formPublicId.value;
 
-        // New upload must have image
-        if (!publicId && !formImage.files[0]) {
-            showMessage('Please select an image.', 'error');
+        // Edit mode — single image update
+        if (publicId) {
+            var formData = new FormData();
+            formData.append('tag', formTag.value.trim());
+            formData.append('caption', formCaption.value.trim());
+            if (selectedFiles.length > 0) {
+                formData.append('image', selectedFiles[0]);
+            }
+
+            formSubmitBtn.disabled = true;
+            formSubmitBtn.textContent = 'Saving...';
+
+            try {
+                var res = await fetch(API_BASE + '/gallery.php?id=' + publicId, { method: 'POST', headers: authHeaders(), body: formData });
+                if (res.status === 401) { window.location.href = '/login.html'; return; }
+                var data = await res.json();
+                if (!res.ok) { showMessage(data.error || 'Failed to save.', 'error'); return; }
+                showMessage('Updated!', 'success');
+            } catch (err) {
+                showMessage('Network error.', 'error');
+            } finally {
+                formSubmitBtn.disabled = false;
+                formSubmitBtn.textContent = 'Save';
+            }
             return;
         }
 
-        var formData = new FormData();
-        formData.append('tag', formTag.value.trim());
-        formData.append('caption', formCaption.value.trim());
-
-        if (formImage.files[0]) {
-            formData.append('image', formImage.files[0]);
+        // New upload — multiple images
+        if (selectedFiles.length === 0) {
+            showMessage('Please select at least one image.', 'error');
+            return;
         }
-
-        var url = API_BASE + '/gallery.php';
-        if (publicId) url += '?id=' + publicId;
 
         formSubmitBtn.disabled = true;
-        formSubmitBtn.textContent = 'Saving...';
+        var total = selectedFiles.length;
+        var uploaded = 0;
+        var failed = 0;
 
-        try {
-            var res = await fetch(url, { method: 'POST', headers: authHeaders(), body: formData });
-            if (res.status === 401) { window.location.href = '/login.html'; return; }
+        for (var i = 0; i < total; i++) {
+            formSubmitBtn.textContent = 'Uploading ' + (i + 1) + '/' + total + '...';
 
-            var data = await res.json();
-            if (!res.ok) { showMessage(data.error || 'Failed to save.', 'error'); return; }
+            var formData = new FormData();
+            formData.append('tag', formTag.value.trim());
+            formData.append('caption', formCaption.value.trim());
+            formData.append('image', selectedFiles[i]);
 
-            showMessage(publicId ? 'Updated!' : 'Uploaded!', 'success');
-
-            if (!publicId && data.public_id) {
-                window.location.href = '/gallery-upload.html?id=' + data.public_id;
+            try {
+                var res = await fetch(API_BASE + '/gallery.php', { method: 'POST', headers: authHeaders(), body: formData });
+                if (res.status === 401) { window.location.href = '/login.html'; return; }
+                var data = await res.json();
+                if (res.ok) { uploaded++; } else { failed++; }
+            } catch (err) {
+                failed++;
             }
-        } catch (err) {
-            showMessage('Network error.', 'error');
-        } finally {
-            formSubmitBtn.disabled = false;
-            formSubmitBtn.textContent = publicId ? 'Save' : 'Upload';
         }
+
+        if (failed === 0) {
+            showMessage('Uploaded ' + uploaded + ' image' + (uploaded > 1 ? 's' : '') + ' successfully!', 'success');
+        } else {
+            showMessage('Uploaded ' + uploaded + ', failed ' + failed + '.', 'error');
+        }
+
+        selectedFiles = [];
+        renderPreviews();
+        formSubmitBtn.disabled = false;
+        formSubmitBtn.textContent = 'Upload';
     });
 
     logoutBtn.addEventListener('click', function () {

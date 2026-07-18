@@ -85,13 +85,13 @@
 
                 <!-- Image section -->
                 <div class="ne-edit-section">
-                    <h2 class="ne-edit-section__title">Image *</h2>
+                    <h2 class="ne-edit-section__title">Image(s) *</h2>
                     <div id="image-dropzone" class="ne-media-add-row__dropzone">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Click to choose image or drag & drop</span>
-                        <input type="file" id="form-image" accept="image/jpeg,image/png,image/webp" style="display:none;">
+                        <span>Click to choose images or drag & drop (multiple allowed)</span>
+                        <input type="file" id="form-image" accept="image/jpeg,image/png,image/webp" multiple style="display:none;">
                     </div>
-                    <div id="image-preview" style="margin-top:0.75rem;"></div>
+                    <div id="image-preview" style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.75rem;"></div>
                 </div>
 
                 <!-- Details section -->
