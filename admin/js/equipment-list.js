@@ -1,0 +1,148 @@
+(function () {
+    var TOKEN_KEY = 'admin_token';
+    var API_BASE = APP_CONFIG.API_BASE_URL + '/admin';
+
+    function getToken() { return localStorage.getItem(TOKEN_KEY); }
+    function authHeaders() { return { 'Authorization': 'Bearer ' + getToken() }; }
+
+    function checkAuth() {
+        var token = getToken();
+        if (!token) { window.location.href = '/login.html'; return false; }
+        try {
+            var payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+            if (payload.exp * 1000 < Date.now()) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/login.html'; return false; }
+        } catch (e) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/login.html'; return false; }
+        return true;
+    }
+
+    if (!checkAuth()) return;
+
+    var grid = document.getElementById('items-grid');
+    var emptyState = document.getElementById('empty-state');
+    var pagination = document.getElementById('pagination');
+    var searchInput = document.getElementById('search-input');
+    var logoutBtn = document.getElementById('logout-btn');
+    var messageEl = document.getElementById('message');
+
+    var currentPage = 1;
+    var searchTerm = '';
+    var searchTimeout;
+
+    function showMessage(text, type) {
+        showToast(text, type);
+    }
+
+    function showSkeleton() {
+        var html = '';
+        for (var i = 0; i < 6; i++) {
+            html += '<div class="admin-skeleton-card"><div class="admin-skeleton-card__image"></div><div class="admin-skeleton-card__body"><div class="admin-skeleton-line admin-skeleton-line--lg"></div><div class="admin-skeleton-line admin-skeleton-line--sm" style="margin-top:0.4rem;"></div></div></div>';
+        }
+        grid.innerHTML = html;
+        emptyState.style.display = 'none';
+    }
+
+    async function loadItems() {
+        showSkeleton();
+        var params = new URLSearchParams({ page: currentPage, per_page: 12 });
+        if (searchTerm) params.set('search', searchTerm);
+
+        try {
+            var res = await fetch(API_BASE + '/equipment.php?' + params.toString(), { headers: authHeaders() });
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/login.html'; return; }
+            var data = await res.json();
+            renderGrid(data.data);
+            renderPagination(data);
+        } catch (err) {
+            showMessage('Failed to load equipment.', 'error');
+        }
+    }
+
+    function renderGrid(items) {
+        if (!items || items.length === 0) {
+            grid.innerHTML = '';
+            emptyState.style.display = '';
+            return;
+        }
+        emptyState.style.display = 'none';
+
+        grid.innerHTML = items.map(function (item) {
+            var imgHtml = item.image_path
+                ? '<img src="' + resolveUploadUrl(item.image_path) + '" alt="">'
+                : '<span class="no-image">No image</span>';
+
+            return '<div class="admin-athlete-card" data-id="' + item.public_id + '">' +
+                '<div class="admin-athlete-card__image">' + imgHtml + '</div>' +
+                '<div class="admin-athlete-card__info">' +
+                    '<h3 class="admin-athlete-card__name">' + escapeHtml(item.name) + '</h3>' +
+                    (item.category ? '<p style="font-size:0.7rem;color:var(--color-primary);margin-top:0.2rem;text-transform:uppercase;font-weight:600;">' + escapeHtml(item.category) + '</p>' : '') +
+                    (item.price ? '<p style="font-size:0.85rem;font-weight:700;color:var(--color-text-heading);margin-top:0.3rem;">' + escapeHtml(item.price) + '</p>' : '') +
+                '</div>' +
+                '<div class="admin-athlete-card__actions">' +
+                    '<a href="/equipment-edit.html?id=' + item.public_id + '" class="btn btn-sm btn-outline">Edit</a>' +
+                    '<button class="btn btn-sm btn-danger delete-btn">Delete</button>' +
+                '</div>' +
+            '</div>';
+        }).join('');
+
+        grid.querySelectorAll('.delete-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var id = btn.closest('.admin-athlete-card').dataset.id;
+                deleteItem(id);
+            });
+        });
+    }
+
+    function renderPagination(data) {
+        if (data.total_pages <= 1) { pagination.innerHTML = ''; return; }
+        var html = '';
+        for (var i = 1; i <= data.total_pages; i++) {
+            html += '<button class="pagination__btn' + (i === data.page ? ' active' : '') + '" data-page="' + i + '">' + i + '</button>';
+        }
+        pagination.innerHTML = html;
+        pagination.querySelectorAll('.pagination__btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                currentPage = parseInt(btn.dataset.page);
+                loadItems();
+            });
+        });
+    }
+
+    searchInput.addEventListener('input', function () {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(function () {
+            searchTerm = searchInput.value.trim();
+            currentPage = 1;
+            loadItems();
+        }, 300);
+    });
+
+    async function deleteItem(publicId) {
+        if (!confirm('Delete this item? This cannot be undone.')) return;
+        try {
+            var res = await fetch(API_BASE + '/equipment.php?id=' + publicId, { method: 'DELETE', headers: authHeaders() });
+            if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); window.location.href = '/login.html'; return; }
+            var data = await res.json();
+            if (!res.ok) { showMessage(data.error || 'Delete failed.', 'error'); return; }
+            showMessage('Item deleted.', 'success');
+            loadItems();
+        } catch (err) {
+            showMessage('Network error.', 'error');
+        }
+    }
+
+    logoutBtn.addEventListener('click', function () {
+        localStorage.removeItem(TOKEN_KEY);
+        window.location.href = '/login.html';
+    });
+
+    // Mobile sidebar
+    var sidebar = document.getElementById('admin-sidebar');
+    var overlay = document.getElementById('admin-overlay');
+    var hamburger = document.getElementById('admin-hamburger');
+    if (hamburger) hamburger.addEventListener('click', function () { sidebar.classList.add('open'); overlay.classList.add('open'); });
+    if (overlay) overlay.addEventListener('click', function () { sidebar.classList.remove('open'); overlay.classList.remove('open'); });
+
+    function escapeHtml(str) { var d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
+
+    loadItems();
+})();

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for corporate or school swimming programmes with Visa Dolphins.">
+    <title>Corporate / School Application — Visa Dolphins</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">Corporate & <span class="text-accent">School</span> Application</h1>
+                <p class="page-hero__desc">Register your school or organisation for group swimming programmes.</p>
+            </div>
+        </section>
+
+        <section class="section" id="apply-form">
+            <div class="container">
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-header">
+                        <h2 class="section-title">School / Organisation Application</h2>
+                        <p class="contact-form-note">Tell us about your group and we'll tailor a programme for you.</p>
+                    </div>
+                    <form class="contact-form" id="apply-corporate-form">
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="cf-school">School / Organisation Name *</label>
+                                <input type="text" id="cf-school" name="school_name" placeholder="e.g. Greenfield Academy" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="cf-contact">Contact Person *</label>
+                                <input type="text" id="cf-contact" name="name" placeholder="Full name" required>
+                            </div>
+                        </div>
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="cf-phone">Phone Number *</label>
+                                <input type="tel" id="cf-phone" name="phone" placeholder="07XX XXX XXX" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="cf-email">Email Address</label>
+                                <input type="email" id="cf-email" name="email" placeholder="you@example.com">
+                            </div>
+                        </div>
+                        <div class="contact-form__field">
+                            <label for="cf-students">Estimated Number of Students *</label>
+                            <input type="number" id="cf-students" name="num_students" placeholder="e.g. 30" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                </div>
+
+                <div style="text-align:center;margin-top:2rem;">
+                    <p style="color:var(--color-text-muted);font-size:0.85rem;">Applying as an individual? <a href="/apply.html" style="color:var(--color-primary);">&larr; Apply for Swimming Classes</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/js/config.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/apply.js"></script>
+</body>
+</html>

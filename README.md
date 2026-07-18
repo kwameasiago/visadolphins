@@ -1,31 +1,64 @@
 # Visa Dolphins
 
-A responsive, dark-themed swimming club website built with plain HTML, CSS, and JavaScript.
+A responsive, dark-themed swimming club website with an admin panel and REST API.
 
-## Features
+## Architecture
 
-- **Responsive Design** — Mobile-first, works across phones, tablets, and large screens
-- **Technical SEO** — Semantic HTML5, meta tags, Open Graph, JSON-LD structured data, lazy loading
-- **Accessible** — ARIA labels, keyboard navigation, proper heading hierarchy
-- **Interactive** — Tab navigation, accordion sections, scroll animations, sticky header
+The project is split into **3 independently deployable apps** sharing a single MySQL database:
 
-## Getting Started
+| Folder | Purpose | Deploys to |
+|--------|---------|------------|
+| `api/` | PHP REST API (admin + public endpoints, uploads, migrations) | `api.visadolphins.co.ke` |
+| `admin/` | Admin dashboard frontend (HTML/CSS/JS) | `admin.visadolphins.co.ke` |
+| `website/` | Public website frontend (HTML/CSS/JS) | `visadolphins.co.ke` |
 
-Open `index.html` in any modern browser — no build step required.
+## Getting Started (Docker)
 
 ```bash
-# Or serve locally with Python
-python3 -m http.server 8080
-
-# Or with Node.js
-npx serve .
+docker compose up --build
 ```
+
+| Service | URL |
+|---------|-----|
+| API | http://localhost:8082 |
+| Admin | http://localhost:8083 |
+| Website | http://localhost:8084 |
+| phpMyAdmin | http://localhost:8081 |
+
+Run migrations: `http://localhost:8082/migrate.php?key=YOUR_MIGRATION_KEY`
+
+## Configuration
+
+- **API config**: `api/config/database.php`, `api/config/env.php`
+- **Admin JS config**: `admin/js/config.js` — set `API_BASE_URL` to your API domain
+- **Website JS config**: `website/js/config.js` — set `API_BASE_URL` to your API domain
+
+## Deployment (cPanel)
+
+1. Upload `api/` to `api.visadolphins.co.ke` document root
+2. Upload `admin/` to `admin.visadolphins.co.ke` document root
+3. Upload `website/` to `visadolphins.co.ke` document root
+4. Update `admin/js/config.js` and `website/js/config.js` with production API URL
+5. Set environment variables or create `api/.env` with DB credentials
 
 ## Structure
 
 ```
-├── index.html        Main page
-├── css/styles.css    All styles (responsive, dark theme)
-├── js/main.js        Interactivity (menu, tabs, accordion)
-└── README.md
+├── api/                 PHP backend
+│   ├── admin/           Protected admin API endpoints
+│   ├── public/          Public read-only API endpoints
+│   ├── config/          Database & environment config
+│   ├── helpers/         Auth & JWT helpers
+│   ├── database/        Migrations & seeds
+│   └── uploads/         Uploaded media files
+├── admin/               Admin frontend
+│   ├── css/             Admin styles
+│   ├── js/              Admin scripts (config.js for API URL)
+│   └── *.html           Admin pages
+├── website/             Public website frontend
+│   ├── css/             Website styles
+│   ├── js/              Website scripts (config.js for API URL)
+│   └── *.html           Website pages
+├── docker-compose.yml   Local dev (3 services + DB + phpMyAdmin)
+└── .env                 Environment variables
 ```

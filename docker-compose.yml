@@ -1,15 +1,15 @@
 services:
-  web:
+  # API backend (PHP) - serves API endpoints and uploaded files
+  api:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8082:80"
     volumes:
-      - ./src:/var/www/html
+      - ./api:/var/www/html
       - ./php.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./.env:/var/www/.env
-      - ./database:/var/www/database
     environment:
       - DB_HOST=db
       - DB_PORT=3306
@@ -24,6 +24,24 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    restart: unless-stopped
+
+  # Admin frontend - static HTML/CSS/JS
+  admin:
+    image: httpd:2.4-alpine
+    ports:
+      - "8083:80"
+    volumes:
+      - ./admin:/usr/local/apache2/htdocs/
+    restart: unless-stopped
+
+  # Website frontend - static HTML/CSS/JS
+  website:
+    image: httpd:2.4-alpine
+    ports:
+      - "8084:80"
+    volumes:
+      - ./website:/usr/local/apache2/htdocs/
     restart: unless-stopped
 
   db:

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for swimming classes at Visa Dolphins — Novice, Intermediate, Elite, and Professional levels.">
+    <title>Apply for Swimming Classes — Visa Dolphins</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">Apply for <span class="text-accent">Swimming Classes</span></h1>
+                <p class="page-hero__desc">Join our programmes — from learn-to-swim through to competitive elite training.</p>
+            </div>
+        </section>
+
+        <section class="section" id="apply-form">
+            <div class="container">
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-header">
+                        <h2 class="section-title">Swimming Class Application</h2>
+                        <p class="contact-form-note">Fill in your details and select your level. We'll get back to you within 24 hours.</p>
+                    </div>
+                    <form class="contact-form" id="apply-swimming-form">
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="af-name">Full Name *</label>
+                                <input type="text" id="af-name" name="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="af-phone">Phone Number *</label>
+                                <input type="tel" id="af-phone" name="phone" placeholder="07XX XXX XXX" required>
+                            </div>
+                        </div>
+                        <div class="contact-form__row">
+                            <div class="contact-form__field">
+                                <label for="af-email">Email Address</label>
+                                <input type="email" id="af-email" name="email" placeholder="you@example.com">
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="af-level">Level *</label>
+                                <select id="af-level" name="level" required>
+                                    <option value="" disabled selected>Select your level</option>
+                                    <option value="novice">Novice — Learn to Swim</option>
+                                    <option value="intermediate">Intermediate — Stroke Development</option>
+                                    <option value="elite">Elite — Competitive</option>
+                                    <option value="professional">Professional — Advanced Performance</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                </div>
+
+                <div style="text-align:center;margin-top:2rem;">
+                    <p style="color:var(--color-text-muted);font-size:0.85rem;">Looking to register a school or organisation? <a href="/apply-corporate.html" style="color:var(--color-primary);">Apply as Corporate/School &rarr;</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/js/config.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/apply.js"></script>
+</body>
+</html>

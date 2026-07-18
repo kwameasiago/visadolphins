@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visa Dolphins Gallery — Training photos, competition moments, and more.">
+    <title>Gallery — Visa Dolphins</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main>
+        <!-- ===========================
+             PAGE HERO
+             =========================== -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="hero-badge">VISA DOLPHINS</span>
+                <h1 class="page-hero__title">Photo <span class="text-accent">Gallery</span></h1>
+                <p class="page-hero__desc">Moments from training, competition, and our SwimKenya School programmes.</p>
+            </div>
+        </section>
+
+        <!-- ===========================
+             GALLERY
+             =========================== -->
+        <section class="section">
+            <div class="container">
+                <div class="gallery-filters" id="gallery-filters">
+                    <button class="gallery-filter active" data-filter="all">All</button>
+                </div>
+
+                <div class="hex-grid" id="hex-grid"></div>
+
+                <div id="gallery-empty" style="display:none;text-align:center;padding:3rem 1rem;color:var(--color-text-muted);">
+                    <p>No photos yet.</p>
+                </div>
+
+                <div id="gallery-pagination" class="pagination" style="margin-top:2rem;"></div>
+
+                <p class="gallery-consent">All photos published with the consent of athletes and guardians.</p>
+            </div>
+        </section>
+
+        <!-- ===========================
+             LIGHTBOX MODAL
+             =========================== -->
+        <div class="lightbox" id="gallery-lightbox">
+            <div class="lightbox__overlay"></div>
+            <button class="lightbox__close" aria-label="Close">&times;</button>
+            <button class="lightbox__prev" aria-label="Previous">&lsaquo;</button>
+            <button class="lightbox__next" aria-label="Next">&rsaquo;</button>
+            <div class="lightbox__content">
+                <img class="lightbox__image" src="" alt="">
+                <p class="lightbox__caption"></p>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/js/config.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/gallery.js"></script>
+</body>
+</html>
