@@ -7,11 +7,11 @@
 
 function getDbConnection(): PDO
 {
-    $host = getenv('DB_HOST') ?: 'db';
-    $port = getenv('DB_PORT') ?: '3306';
-    $database = getenv('DB_DATABASE') ?: 'visadolphins';
-    $username = getenv('DB_USERNAME') ?: 'visadolphins';
-    $password = getenv('DB_PASSWORD') ?: 'secret';
+    $host = getenv('DB_HOST') ?: ($_SERVER['DB_HOST'] ?? 'db');
+    $port = getenv('DB_PORT') ?: ($_SERVER['DB_PORT'] ?? '3306');
+    $database = getenv('DB_DATABASE') ?: ($_SERVER['DB_DATABASE'] ?? 'visadolphins');
+    $username = getenv('DB_USERNAME') ?: ($_SERVER['DB_USERNAME'] ?? 'visadolphins');
+    $password = getenv('DB_PASSWORD') ?: ($_SERVER['DB_PASSWORD'] ?? 'secret');
 
     $dsn = "mysql:host={$host};port={$port};dbname={$database};charset=utf8mb4";
 

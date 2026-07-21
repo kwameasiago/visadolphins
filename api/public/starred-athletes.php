@@ -6,6 +6,7 @@
  * GET /api/public/starred-athletes.php — Returns athletes marked as "star"
  */
 
+require_once __DIR__ . '/../helpers/cors.php';
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';

@@ -7,6 +7,7 @@
  * GET /api/public/news-events.php?id=<uuid>    — Single detail with all media
  */
 
+require_once __DIR__ . '/../helpers/cors.php';
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';

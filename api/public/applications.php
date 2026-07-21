@@ -6,6 +6,7 @@
  * POST /api/public/applications.php — Submit a swimming or corporate application
  */
 
+require_once __DIR__ . '/../helpers/cors.php';
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';

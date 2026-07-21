@@ -67,7 +67,7 @@
                     descHtml + priceHtml +
                     '<div class="equipment-card__actions">' +
                         '<a href="/sports/equipment-detail.html?id=' + item.public_id + '" class="btn btn-sm btn-outline">View Details</a>' +
-                        '<a href="https://wa.me/254700000000?text=' + encodeURIComponent('Hi, I\'d like to order ' + item.name) + '" target="_blank" class="btn btn-sm btn-whatsapp">WhatsApp</a>' +
+                        '<a href="https://wa.me/254717784400?text=' + encodeURIComponent('Hi, I\'d like to order ' + item.name) + '" target="_blank" class="btn btn-sm btn-whatsapp">WhatsApp</a>' +
                     '</div>' +
                 '</div>' +
             '</div>';

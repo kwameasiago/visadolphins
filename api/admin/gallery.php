@@ -10,6 +10,8 @@
  * DELETE /api/gallery.php?id=<uuid>    — Delete
  */
 
+require_once __DIR__ . '/../helpers/cors.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     empty($_POST) && empty($_FILES) &&
     isset($_SERVER['CONTENT_LENGTH']) && (int)$_SERVER['CONTENT_LENGTH'] > 0) {

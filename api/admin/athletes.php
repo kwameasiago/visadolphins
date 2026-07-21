@@ -10,6 +10,8 @@
  * DELETE /api/athletes.php?id=<uuid>    — Delete athlete
  */
 
+require_once __DIR__ . '/../helpers/cors.php';
+
 // Check if POST data was discarded due to size limit
 if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     empty($_POST) && empty($_FILES) &&

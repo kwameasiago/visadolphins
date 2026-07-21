@@ -7,6 +7,7 @@
  * Usage: GET /api/migrate.php?key=YOUR_MIGRATION_KEY
  */
 
+require_once __DIR__ . '/helpers/cors.php';
 header('Content-Type: application/json');
 
 // Load environment
@@ -16,7 +17,7 @@ loadEnv();
 require_once __DIR__ . '/config/database.php';
 
 // Validate migration key
-$migrationKey = getenv('MIGRATION_KEY');
+$migrationKey = getenv('MIGRATION_KEY') ?: ($_SERVER['MIGRATION_KEY'] ?? '');
 $providedKey = $_GET['key'] ?? '';
 
 if (!$migrationKey || $providedKey !== $migrationKey) {
@@ -63,9 +64,9 @@ try {
 
     // Seed admin user
     $seedMessage = '';
-    $adminUsername = getenv('ADMIN_USERNAME') ?: 'admin';
-    $adminEmail = getenv('ADMIN_EMAIL') ?: 'admin@visadolphins.co.ke';
-    $adminPassword = getenv('ADMIN_PASSWORD') ?: 'admin123';
+    $adminUsername = getenv('ADMIN_USERNAME') ?: ($_SERVER['ADMIN_USERNAME'] ?? 'admin');
+    $adminEmail = getenv('ADMIN_EMAIL') ?: ($_SERVER['ADMIN_EMAIL'] ?? 'admin@visadolphins.co.ke');
+    $adminPassword = getenv('ADMIN_PASSWORD') ?: ($_SERVER['ADMIN_PASSWORD'] ?? 'admin123');
 
     $stmt = $pdo->prepare("SELECT id FROM admin_users WHERE username = ?");
     $stmt->execute([$adminUsername]);

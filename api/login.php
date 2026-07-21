@@ -6,6 +6,7 @@
  * Returns: { "token": "..." } on success
  */
 
+require_once __DIR__ . '/helpers/cors.php';
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/config/database.php';
@@ -41,7 +42,7 @@ try {
         exit;
     }
 
-    $secret = getenv('JWT_SECRET') ?: 'default-jwt-secret-change-me';
+    $secret = getenv('JWT_SECRET') ?: ($_SERVER['JWT_SECRET'] ?? 'default-jwt-secret-change-me');
 
     $token = jwt_encode([
         'sub'      => $user['id'],

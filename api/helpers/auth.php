@@ -26,7 +26,7 @@ function requireAuth(): array
     }
 
     $token = $matches[1];
-    $secret = getenv('JWT_SECRET') ?: 'default-jwt-secret-change-me';
+    $secret = getenv('JWT_SECRET') ?: ($_SERVER['JWT_SECRET'] ?? 'default-jwt-secret-change-me');
     $payload = jwt_decode($token, $secret);
 
     if (!$payload) {

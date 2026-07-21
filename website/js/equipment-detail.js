@@ -65,7 +65,7 @@
             '        <h1 class="equipment-hero__name">' + escapeHtml(item.name) + '</h1>' +
             '        <p class="equipment-hero__desc">' + escapeHtml(item.description || '') + '</p>' +
                      sizesHtml +
-            '        <a href="https://wa.me/254700000000?text=' + encodeURIComponent('Hi, I\'d like to order ' + item.name) + '" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">' +
+            '        <a href="https://wa.me/254717784400?text=' + encodeURIComponent('Hi, I\'d like to order ' + item.name) + '" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">' +
             '          Enquire via WhatsApp' +
             '        </a>' +
             '      </div>' +
