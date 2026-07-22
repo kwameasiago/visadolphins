@@ -1950,9 +1950,9 @@ a.btn-primary,
     color: var(--color-text-muted);
 }
 
+.social-card--youtube { --social-color: #ff0000; }
 .social-card--tiktok { --social-color: #ff0050; }
 .social-card--instagram { --social-color: #e1306c; }
-.social-card--facebook { --social-color: #1877f2; }
 .social-card--whatsapp { --social-color: #25d366; }
 
 @media (max-width: 1024px) {

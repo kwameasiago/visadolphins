@@ -1,15 +1,15 @@
 /**
  * Website Configuration
- * Change API_BASE_URL to match your deployment environment.
+ * Auto-detects environment based on hostname.
  */
-var APP_CONFIG = {
-    // For local development (Docker): 'http://localhost:8082/public'
-    // For production: 'https://api.visadolphins.co.ke/public'
-    API_BASE_URL: 'http://localhost:8082/public',
-    // For local development (Docker): 'http://localhost:8082'
-    // For production: 'https://api.visadolphins.co.ke'
-    UPLOADS_BASE_URL: 'http://localhost:8082'
-};
+var APP_CONFIG = (function () {
+    var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    var apiBase = isLocal ? 'http://localhost:8082' : 'https://api.visadolphins.co.ke';
+    return {
+        API_BASE_URL: apiBase + '/public',
+        UPLOADS_BASE_URL: apiBase
+    };
+})();
 
 /**
  * Resolves an upload path (e.g. /uploads/athletes/img.jpg) to a full URL.
