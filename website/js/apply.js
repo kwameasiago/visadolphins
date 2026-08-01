@@ -1,4 +1,17 @@
 (function () {
+    // Prefill level from query param if present
+    var params = new URLSearchParams(window.location.search);
+    var levelParam = params.get('level');
+    if (levelParam) {
+        var levelSelect = document.getElementById('af-level');
+        if (levelSelect) {
+            var option = levelSelect.querySelector('option[value="' + levelParam + '"]');
+            if (option) {
+                levelSelect.value = levelParam;
+            }
+        }
+    }
+
     // Swimming Classes form
     var swimmingForm = document.getElementById('apply-swimming-form');
     if (swimmingForm) {
