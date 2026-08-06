@@ -3409,6 +3409,44 @@ a.btn-primary,
     line-height: 1.7;
 }
 
+.team-card__certs {
+    margin-top: 1.5rem;
+}
+
+.team-card__certs-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.cert-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cert-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(0, 188, 212, 0.08);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    border-radius: 2rem;
+    white-space: nowrap;
+    transition: all var(--transition);
+}
+
+.cert-badge:hover {
+    background: rgba(0, 188, 212, 0.15);
+    border-color: rgba(0, 188, 212, 0.4);
+}
+
 /* Location Cards */
 .locations-grid {
     display: grid;
